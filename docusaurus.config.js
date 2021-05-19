@@ -92,7 +92,8 @@ module.exports = {
           blogSidebarTitle: '近期文章',
           showReadingTime: true,
           // https://github.com/zxuqian/zxuqian.cn/blob/master/docs/tools/00-tools-intro.md
-          editUrl: 'https://github.com/hec9527/blog/master',
+          // https://github.com/hec9527/blog/edit/main/blog/2021-05-19-利星行中心.md
+          editUrl: 'https://github.com/hec9527/blog/edit/main/',
           feedOptions: {
             type: 'all',
             title: 'hec9527',
