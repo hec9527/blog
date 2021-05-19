@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'hec9527的博客',
+  tagline: 'build with docusaurus',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -14,19 +14,60 @@ module.exports = {
       title: 'hec9257',
       logo: {
         alt: 'Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/avatar.jpg',
       },
       items: [
         {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Tutorial',
+          label: '主页',
+          href: '/',
+          position: 'right',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'right',
+        //   label: 'Tutorial',
+        // },
+        { to: '/blog', label: '博客', position: 'right' },
+        // {
+        //   label: '阅读源码',
+        //   position: 'right',
+        //   items: [
+        //     {
+        //       label: 'vue',
+        //       href: 'https://v3.cn.vuejs.org',
+        //     },
+        //     {
+        //       label: 'react',
+        //       href: 'https://react.docschina.org',
+        //     },
+        //     {
+        //       label: 'lodash',
+        //       href: '/',
+        //     },
+        //     {
+        //       label: '我的',
+        //       href: '/review',
+        //     },
+        //   ],
+        // },
+        {
+          label: 'demo分享',
+          position: 'right',
+          items: [
+            {
+              label: '2048小游戏',
+              href: 'https://github.com/hec9527/2048',
+            },
+            {
+              label: 'BattleCity',
+              href: 'https://github.com/hec9527/battlecity',
+            },
+          ],
+        },
         {
           label: 'GitHub',
-          href: 'https://github.com/hec9527/blog',
+          href: 'https://github.com/hec9527/',
           position: 'right',
         },
       ],
@@ -84,15 +125,13 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/hec9527/blog/tree/master',
+          editUrl: 'https://github.com/hec9527/blog/edit/main/',
         },
         blog: {
           blogTitle: 'hec9527 的博客',
           blogDescription: 'hec9527的博客，前端工程师的逆袭之路',
           blogSidebarTitle: '近期文章',
           showReadingTime: true,
-          // https://github.com/zxuqian/zxuqian.cn/blob/master/docs/tools/00-tools-intro.md
-          // https://github.com/hec9527/blog/edit/main/blog/2021-05-19-利星行中心.md
           editUrl: 'https://github.com/hec9527/blog/edit/main/',
           feedOptions: {
             type: 'all',
@@ -106,4 +145,16 @@ module.exports = {
       },
     ],
   ],
+  i18n: {
+    defaultLocale: 'zh-CN',
+    locales: ['zh-CN', 'en'],
+    localeConfigs: {
+      'zh-CN': {
+        label: '中文',
+      },
+      en: {
+        label: 'English',
+      },
+    },
+  },
 };
