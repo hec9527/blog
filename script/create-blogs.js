@@ -1,5 +1,6 @@
 const inquiere = require('inquirer');
 const shell = require('shelljs');
+const fs = require('fs');
 
 const tags = ['html', 'css', 'javascript', 'typescript', 'webpack'];
 
@@ -32,7 +33,9 @@ const questions = [
   const { docTitle, docDesc, docTags } = await inquiere.prompt(questions);
   const fullDocTitle = `${new Date().toISOString().slice(0, 10)}-${docTitle}`;
 
-  shell.exec(`hygen blog new --path ${fullDocTitle} --title ${docTitle} --desc ${docDesc} --tags ${docTags}`);
+  if (!fs.existsSync(`blog/img/${fullDocTitle}`)) {
+    fs.mkdirSync(`blog/img/${fullDocTitle}`);
+  }
 
-  console.log({ docTitle, docDesc, docTags });
+  shell.exec(`hygen blog new --path ${fullDocTitle} --title ${docTitle} --desc ${docDesc} --tags ${docTags}`);
 })();
