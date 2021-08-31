@@ -58,7 +58,7 @@ module.exports = {
         //   ],
         // },
         {
-          label: 'demo分享',
+          label: 'Demo',
           position: 'right',
           items: [
             {
@@ -68,6 +68,10 @@ module.exports = {
             {
               label: 'BattleCity',
               href: 'https://github.com/hec9527/battlecity',
+            },
+            {
+              label: 'Todo',
+              href: 'https://github.com/hec9527/todo',
             },
           ],
         },
