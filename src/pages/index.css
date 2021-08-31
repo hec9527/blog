@@ -1,0 +1,42 @@
+.hero.hero--primary {
+  height: calc(100vh - 60px);
+  background-image: url(../../static/img/home-banner.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 105% auto;
+
+  animation: swing 50s linear infinite;
+}
+
+.hero.hero--primary > .container {
+  width: 840px;
+  padding: 3em;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+@keyframes swing {
+  0% {
+    background-position: center center;
+  }
+
+  20% {
+    background-position: left top;
+  }
+
+  40% {
+    background-position: left center;
+  }
+
+  60% {
+    background-position: right bottom;
+  }
+
+  80% {
+    background-position: right top;
+  }
+
+  100% {
+    background-position: center center;
+  }
+}

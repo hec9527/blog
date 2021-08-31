@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'hec9527的博客',
-  tagline: 'build with docusaurus',
+  tagline: 'Build With Docusaurus',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenMarkdownLinks: 'warn',
@@ -78,52 +78,52 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      // style: 'dark',
-      style: 'light',
-      // links: [
-      //   {
-      //     title: 'Docs',
-      //     items: [
-      //       {
-      //         label: 'Tutorial',
-      //         to: '/docs/intro',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Community',
-      //     items: [
-      //       {
-      //         label: 'Stack Overflow',
-      //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //       },
-      //       {
-      //         label: 'Discord',
-      //         href: 'https://discordapp.com/invite/docusaurus',
-      //       },
-      //       {
-      //         label: 'Twitter',
-      //         href: 'https://twitter.com/docusaurus',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'More',
-      //     items: [
-      //       {
-      //         label: 'Blog',
-      //         to: '/blog',
-      //       },
-      //       {
-      //         label: 'GitHub',
-      //         href: 'https://github.com/facebook/docusaurus',
-      //       },
-      //     ],
-      //   },
-      // ],
-      copyright: `Copyright © ${new Date().getFullYear()} Hec9527 Built with Docusaurus.`,
-    },
+    // footer: {
+    // style: 'dark',
+    // style: 'light',
+    // links: [
+    //   {
+    //     title: 'Docs',
+    //     items: [
+    //       {
+    //         label: 'Tutorial',
+    //         to: '/docs/intro',
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     title: 'Community',
+    //     items: [
+    //       {
+    //         label: 'Stack Overflow',
+    //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+    //       },
+    //       {
+    //         label: 'Discord',
+    //         href: 'https://discordapp.com/invite/docusaurus',
+    //       },
+    //       {
+    //         label: 'Twitter',
+    //         href: 'https://twitter.com/docusaurus',
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     title: 'More',
+    //     items: [
+    //       {
+    //         label: 'Blog',
+    //         to: '/blog',
+    //       },
+    //       {
+    //         label: 'GitHub',
+    //         href: 'https://github.com/facebook/docusaurus',
+    //       },
+    //     ],
+    //   },
+    // ],
+    // copyright: `Copyright © ${new Date().getFullYear()} Hec9527 Built with Docusaurus.`,
+    // },
   },
   presets: [
     [
@@ -136,7 +136,7 @@ module.exports = {
         blog: {
           blogTitle: 'hec9527 的博客',
           blogDescription: 'hec9527的博客，前端工程师的逆袭之路',
-          blogSidebarTitle: '近期文章',
+          blogSidebarTitle: '最新博客',
           showReadingTime: true,
           editUrl: 'https://github.com/hec9527/blog/edit/main/',
           feedOptions: {

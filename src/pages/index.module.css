@@ -5,21 +5,11 @@
  * and scoped locally.
  */
 
-#__docusaurus {
-  background: #f00;
-}
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.homeNav {
-  position: absolute;
-  background: transparent;
-  backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 966px) {
