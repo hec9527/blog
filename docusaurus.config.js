@@ -8,6 +8,7 @@ module.exports = {
   favicon: 'img/avator.jpg',
   organizationName: 'hec9527',
   projectName: 'blog',
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     image: 'img/avator.jpg',
     algolia: {
