@@ -16,6 +16,12 @@ tags: [webpack]
 
 [实例代码](https://github.com/hec9527/webpackDev/tree/blog-demo/demo-01)
 
+## 系列文章
+
+- [webpack 入门](/blog/2021/09/08/my-webpack-cli-01)
+- [webpack 的四大核心概念](/blog/2021/09/09/my-webpack-cli-02)
+- [webpack 开发服务器](/blog/2021/09/10/my-webpack-cli-03)
+
 ## 如何编写 webpack 配置文件
 
 webpack 配置文件本质上是一个 [commonjs](https://juejin.cn/post/6844903978333896718) 的 js 文件，通常我们会将文件命名为`webpack.config.js`并且存放在项目的根目录，这是 webpack 默认的配置文件路径。接下来我们就简单尝试一下 webpack 的配置文件，创建一个`webpack.config.js`文件，并且添加以下内容。暂时不用管配置文件的内容，稍后我们会详细说明。
