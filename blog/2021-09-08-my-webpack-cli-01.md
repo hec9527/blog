@@ -10,9 +10,11 @@ tags: [webpack]
 
 webpack 是一个前端资源加载/打包工具,它根据模块的依赖进行静态分析,然后将这些模块按照特地的规则生成对应的静态资源。依靠插件和 loader 机制，它能做的远不于此
 
+链接： [Github 首页](https://github.com/hec9527)
+
 <!-- truncate -->
 
-链接： [Github 首页](https://github.com/hec9527) [代码示例地址](https://github.com/hec9527/webpackDev/tree/blog-demo/demo-00)
+[代码示例地址](https://github.com/hec9527/webpackDev/tree/blog-demo/demo-00)
 
 ![](img/2021-09-08-my-webpack-cli-01/20210908_17-12-32.png)
 

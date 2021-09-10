@@ -10,9 +10,11 @@ tags: [webpack]
 
 上一篇文章我们提到，使用 webpack-cli 通过命令行参数的方式可以配置 webpack，但是 webpack 配置繁多且复杂，如果我们将所有的配置都通过命令行配置，不仅阅读性差而且修改起来及其不方便同时某些配置也无法实现
 
+链接： [Github 首页](https://github.com/hec9527)
+
 <!-- truncate -->
 
-链接： [Github 首页](https://github.com/hec9527) [实例代码](https://github.com/hec9527/webpackDev/tree/blog-demo/demo-01)
+[实例代码](https://github.com/hec9527/webpackDev/tree/blog-demo/demo-01)
 
 ## 如何编写 webpack 配置文件
 
@@ -205,7 +207,7 @@ output: {
 
 ### 生成代码运行环境
 
-通过指定 `output.environment` 可以指定代码运行环境所支持的 ES 特性。
+搭配 babel-loader，通过指定 `output.environment` 可以指定代码运行环境所支持的 ES 特性。
 
 ```js
 output: {
