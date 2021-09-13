@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首页</title>
+  </head>
+  <body>
+    <dialog open>
+      <h3>Home</h3>
+      <p id="greeting"></p>
+      <a id="login" href="./profile.html" target="__blank">login</a>
+    </dialog>
+
+    <script>
+      const gt = document.getElementById('greeting');
+      const lg = document.getElementById('login');
+
+      function update(name) {
+        if (!name) {
+          gt.innerHTML = "You don't login";
+        } else {
+          gt.innerHTML = 'Hello ' + name;
+        }
+      }
+
+      update();
+
+      window.addEventListener('storage', (e) => {
+        console.log(e);
+        update(e.newValue);
+        lg.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

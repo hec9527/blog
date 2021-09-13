@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <dialog open>
+      <h3>Login</h3>
+      <p>Hello please input your name first</p>
+      <input type="text" placeholder="Please input your name" />
+      <button id="btn_setName">Set Name</button>
+    </dialog>
+
+    <script>
+      const btn = document.getElementById('btn_setName');
+      const input = document.getElementsByTagName('input')[0];
+      btn.addEventListener('click', () => {
+        localStorage.setItem('name', input.value);
+        console.log('set name:', input.value);
+        window.close();
+      });
+    </script>
+  </body>
+</html>

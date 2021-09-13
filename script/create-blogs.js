@@ -2,7 +2,7 @@ const inquiere = require('inquirer');
 const shell = require('shelljs');
 const fs = require('fs');
 
-const tags = ['html', 'css', 'javascript', 'typescript', 'webpack'];
+const tags = ['html', 'css', 'javascript', 'typescript', 'webpack', '面试'];
 
 const questions = [
   {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <p>
+      Hello，
+      <span id="name"></span>
+      <a href="./profile.html" target="__blank" id="login">>login</a>
+    </p>
+
+    <script>
+      const uName = document.getElementById('name');
+      const login = document.getElementById('login');
+
+      function getCookie(key) {
+        const cookie = document.cookie.replace(/;\s+/gim, '","').replace(/=/gim, '":"');
+        return cookie && JSON.parse('{"' + cookie + '"}')[key];
+      }
+      setInterval(() => {
+        const value = getCookie('name');
+        if (value) {
+          login.style.display = 'none';
+          uName.innerHTML = value;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
