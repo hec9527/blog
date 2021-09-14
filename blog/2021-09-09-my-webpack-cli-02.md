@@ -290,7 +290,7 @@ You may need an appropriate loader to handle this file type, currently no loader
 webpack 5.52.0 compiled with 1 error in 243 ms
 ```
 
-报错是在`add.ts`中的，上面的报错内容告诉我们，我们需要一个合适的 loader 来加载这种类型的文档。我们可以在[npmjs](npmjs.com)中使用`typescript loader`搜索我们需要的 loader，但是常用的就那么几个，这里我们可以直接安装 `ts-loader`，如果你真的去搜了，大概率搜到的结果第一个也是这个，下面我们来安装一下这个 loader
+报错是在`add.ts`中的，上面的报错内容告诉我们，我们需要一个合适的 loader 来加载这种类型的文档。我们可以在[npmjs](https://npmjs.com)中使用`typescript loader`搜索我们需要的 loader，但是常用的就那么几个，这里我们可以直接安装 `ts-loader`，如果你真的去搜了，大概率搜到的结果第一个也是这个，下面我们来安装一下这个 loader
 
 ```bash
 npm install -D ts-loader typescript
