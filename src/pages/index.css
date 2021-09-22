@@ -3,9 +3,9 @@
   background-image: url(../../static/img/home-banner.webp);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 105% auto;
+  background-size: cover;
 
-  animation: swing 50s linear infinite;
+  animation: swing 50s ease infinite;
 }
 
 .hero.hero--primary > .container {
@@ -15,25 +15,28 @@
   backdrop-filter: blur(20px);
 }
 
+@media screen and (max-width: 768px) {
+  .hero__title {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  .hero__subtitle {
+    font-size: 0.8rem;
+  }
+  /*  */
+}
+
 @keyframes swing {
   0% {
     background-position: center center;
   }
 
-  20% {
-    background-position: left top;
-  }
-
-  40% {
+  25% {
     background-position: left center;
   }
 
-  60% {
-    background-position: right bottom;
-  }
-
-  80% {
-    background-position: right top;
+  75% {
+    background-position: right center;
   }
 
   100% {
