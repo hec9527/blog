@@ -69,7 +69,7 @@ tags: [html, javascript，面试]
 ```
 
 :::tip
-以上代码为 html 片段，只包含关键信息，将代码单独保存贴到浏览器中即可运行，也可以[查看源码](https://github.com/hec9527/blog/demo/浏览器多标签通信/localstorage)
+以上代码为 html 片段，只包含关键信息，将代码单独保存贴到浏览器中即可运行，也可以[查看源码](https://github.com/hec9527/blog/tree/main/demo/浏览器多标签通信/localstorage)
 :::
 
 ## Cookie + setInterval 实现
