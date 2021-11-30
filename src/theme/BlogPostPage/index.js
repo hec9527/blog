@@ -60,6 +60,7 @@ function BlogPostPage(props) {
               .join(',')}
           />
         )}
+
         {tags.length > 0 && <meta property='article:tag' content={tags.map((tag) => tag.label).join(',')} />}
       </Seo>
 
