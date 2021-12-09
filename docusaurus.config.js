@@ -2,15 +2,15 @@
 module.exports = {
   title: 'hec9527的博客',
   tagline: 'Build With Docusaurus',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://blog.hec9527.top',
   baseUrl: '/',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/avator.jpg',
+  favicon: 'img/avatar.jpg',
   organizationName: 'hec9527',
   projectName: 'blog',
   themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
-    image: 'img/avator.jpg',
+    image: 'img/avatar.jpg',
     algolia: {
       appId: '7HXI0RXPQH',
       apiKey: 'ca105e73cac40121b52d7cbceec82224',
@@ -21,7 +21,7 @@ module.exports = {
       title: 'hec9257',
       logo: {
         alt: 'Site Logo',
-        src: 'img/avator.jpg',
+        src: 'img/avatar.jpg',
       },
       items: [
         {
@@ -156,16 +156,4 @@ module.exports = {
       },
     ],
   ],
-  // i18n: {
-  //   defaultLocale: 'zh-CN',
-  //   locales: ['zh-CN', 'en'],
-  //   localeConfigs: {
-  //     'zh-CN': {
-  //       label: '中文',
-  //     },
-  //     en: {
-  //       label: 'English',
-  //     },
-  //   },
-  // },
 };
