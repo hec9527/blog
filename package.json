@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "npm start",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",

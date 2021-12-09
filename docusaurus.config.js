@@ -12,9 +12,9 @@ module.exports = {
   themeConfig: {
     image: 'img/avator.jpg',
     algolia: {
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_API_KEY',
-      indexName: 'YOUR_INDEX_NAME',
+      appId: '7HXI0RXPQH',
+      apiKey: 'ca105e73cac40121b52d7cbceec82224',
+      indexName: 'hec_blog',
       contextualSearch: true,
     },
     navbar: {
