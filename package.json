@@ -13,7 +13,8 @@
     "serve": "docusaurus serve",
     "new": "node ./script/create-blogs.js",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.9",

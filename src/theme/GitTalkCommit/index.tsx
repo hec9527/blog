@@ -6,8 +6,8 @@ const GitTalkCommit: React.FC = () => {
   useEffect(() => {
     new Gitalk({
       admin: ['hec9527'],
-      clientID: 'b7a69103e09aed1d4ac9',
-      clientSecret: 'bc278325718ff1cc5485642e937ea5c750957d94',
+      clientID: '776945e61c309bf840cb',
+      clientSecret: '1488e71a045da725e1d167bb57775ec744c66936',
       repo: 'blog',
       owner: 'hec9527',
       id: 'hec9527-blog',
