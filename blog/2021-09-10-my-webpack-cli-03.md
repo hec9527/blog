@@ -130,7 +130,7 @@ npm start
 
 当我们启动项目后没有报错，在浏览器中打开 http://localhost:3000 页面显示 Express 则表示服务器已经成功启动了。接下来我们简单修改一下 webpack 配置
 
-```js title="webpack.config.js 部分内容"
+```js title="webpack.config.js"
 const config = {
   // 省略部分内容 ...
 
