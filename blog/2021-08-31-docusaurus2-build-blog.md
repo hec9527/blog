@@ -66,8 +66,8 @@ npm run swizzle <theme name> [component name]
 4. 在容器组件里面合适的地方插入评论组件
 
 ```shell
-# 如果使用 npm 弹出组件报错，将npm替换成yarn
-npm run swizzle @docusaurus/theme-classic BlogPostPage --danger
+# 弹出内置组件，实现定制化修改
+npx docusaurus swizzle @docusaurus/theme-classic NavBar --danger
 ```
 
 这里添加 `--danger`，是因为目前 docusaurus2 还处于 beta 阶段，部分内置组件可能会改变。接下来我们编写一个评论的组件， 首先需要安装 gitalk 依赖，然后去 [github 注册应用](https://github.com/settings/applications/new)。
