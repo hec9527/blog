@@ -5,12 +5,12 @@ module.exports = {
   url: 'https://blog.hec9527.top',
   baseUrl: '/',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/avatar.jpg',
+  favicon: 'img/avatar-circle.png',
   organizationName: 'hec9527',
   projectName: 'blog',
   themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
-    image: 'img/avatar.jpg',
+    image: 'img/avatar-circle.png',
     algolia: {
       appId: '7HXI0RXPQH',
       apiKey: 'ca105e73cac40121b52d7cbceec82224',

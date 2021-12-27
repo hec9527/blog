@@ -1,6 +1,6 @@
 .hero.hero--primary {
   height: calc(100vh - 60px);
-  background-image: url(../../static/img/home-banner.webp);
+  background-image: url(../../static/img/home-bg.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
