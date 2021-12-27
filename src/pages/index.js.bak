@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <Layout title={'首页' || siteConfig.title}>
       <HomepageHeader />
+      {/* <BlogListPage /> */}
     </Layout>
   );
 }

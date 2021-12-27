@@ -42,3 +42,8 @@
 .navbar .navbar__title {
   color: var(--ifm-color-primary);
 }
+
+html {
+  width: 100vw;
+  overflow: hidden auto;
+}

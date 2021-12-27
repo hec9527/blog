@@ -5,7 +5,7 @@ author_title: 前端切图工程师
 author_url: https://github.com/hec9527
 author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
 description: 浏览器多标签通信
-tags: [html, javascript，面试]
+tags: [html, javascript, 面试]
 ---
 
 浏览器中如何实现多个标签之间的通信?

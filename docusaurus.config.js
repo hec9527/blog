@@ -24,18 +24,18 @@ module.exports = {
         src: 'img/avatar.jpg',
       },
       items: [
-        {
-          label: '主页',
-          href: '/',
-          position: 'right',
-        },
+        // {
+        //   label: '主页',
+        //   href: '/',
+        //   position: 'right',
+        // },
         // {
         //   type: 'doc',
         //   docId: 'intro',
         //   position: 'right',
         //   label: 'Tutorial',
         // },
-        { to: '/blog', label: '博客', position: 'right' },
+        // { to: '/blog', label: '博客', position: 'right' },
         // {
         //   label: '阅读源码',
         //   position: 'right',
@@ -139,6 +139,7 @@ module.exports = {
           editUrl: 'https://github.com/hec9527/blog/edit/main/',
         },
         blog: {
+          routeBasePath: '/',
           blogTitle: 'hec9527 的博客',
           blogDescription: 'hec9527的博客，前端工程师的逆袭之路',
           blogSidebarTitle: '最新博客',
