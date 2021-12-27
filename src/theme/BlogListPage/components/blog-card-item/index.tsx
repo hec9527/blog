@@ -3,7 +3,6 @@ import Tag from '@site/static/svg/tag.svg';
 import style from './index.module.css';
 
 interface BlogItemsProps {
-  type: ViewType;
   title: string;
   authors: { imageURL: string; name: string; title: string; url: string }[];
   tags: { label: string; permalink: string }[];
@@ -28,14 +27,12 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
 
   return (
     <div className={style.blog_items}>
-      {props.type === 'card' && (
-        <div className={style.blog_items_matter}>
-          <div className={style.blog_items_date}>
-            <div className={style.blog_items_day}>{date[0]}</div>
-            <div className={style.blog_items_month}>{date[1]}</div>
-          </div>
+      <div className={style.blog_items_matter}>
+        <div className={style.blog_items_date}>
+          <div className={style.blog_items_day}>{date[0]}</div>
+          <div className={style.blog_items_month}>{date[1]}</div>
         </div>
-      )}
+      </div>
       <article className={style.blog_items_content}>
         <header>
           <h2 className={style.blog_items_title}>
@@ -53,7 +50,9 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
         <div className={style.blog_items_tags}>
           <Tag />
           {props.tags.map((tag) => (
-            <div key={tag.label}>{tag.label}</div>
+            <a href={tag.permalink} key={tag.label}>
+              {tag.label}
+            </a>
           ))}
         </div>
 

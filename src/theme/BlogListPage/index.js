@@ -7,7 +7,6 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import BlogPostItem from '@theme/BlogPostItem';
 import BlogListPaginator from '@theme/BlogListPaginator';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import clsx from 'clsx';
@@ -18,9 +17,10 @@ import NewBlog from '@site/static/svg/new.svg';
 
 import useViewType from '@site/src/hooks/useViewType';
 
-import Banner from './components/banner';
-import BlogItem from './components/blog-item';
 import style from './index.module.css';
+import Banner from './components/banner';
+import BlogCardItem from './components/blog-card-item';
+import BlogListItem from './components/blog-list-item';
 
 function BlogListPage(props) {
   console.log(props);
@@ -59,18 +59,21 @@ function BlogListPage(props) {
       </div>
 
       {/* 博客列表 */}
-      <div className={style.home_blogList_container}>
+      <div
+        className={clsx(style.home_blogList_container, {
+          [style.home_blogList_card]: type === 'card',
+          [style.home_blogList_list]: type === 'list',
+        })}
+      >
         {items.map(({ content: BlogPostContent }) => (
-          <div
-            key={BlogPostContent.metadata.permalink}
-            className={clsx(style.home_blogItem, {
-              [style.home_blogItem_card]: type === 'card',
-              [style.home_blogItem_list]: type === 'list',
-            })}
-          >
-            <BlogItem type={type} {...BlogPostContent.metadata}>
-              <BlogPostContent />
-            </BlogItem>
+          <div className={clsx(style.home_blogItem)} key={BlogPostContent.metadata.permalink}>
+            {type === 'card' ? (
+              <BlogCardItem {...BlogPostContent.metadata}>
+                <BlogPostContent />
+              </BlogCardItem>
+            ) : (
+              <BlogListItem {...BlogPostContent.metadata} />
+            )}
 
             {/* <BlogPostItem
               frontMatter={BlogPostContent.frontMatter}

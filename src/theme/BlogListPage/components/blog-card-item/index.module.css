@@ -78,7 +78,7 @@
   align-items: center;
 }
 
-.blog_items_tags > div {
+.blog_items_tags > a {
   padding: 6px 10px;
   border-radius: 6px;
   background-color: var(--ifm-color-primary);
@@ -87,6 +87,7 @@
   cursor: pointer;
   margin-right: 0.5em;
   font-size: 0.75em;
+  text-decoration: none;
 }
 
 .blog_items_footer {
