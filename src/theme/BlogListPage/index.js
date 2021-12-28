@@ -23,6 +23,8 @@ import BlogCardItem from './components/blog-card-item';
 import BlogListItem from './components/blog-list-item';
 
 function BlogListPage(props) {
+  console.log(props);
+
   const { metadata, items } = props;
   const {
     siteConfig: { title: siteTitle },
@@ -37,54 +39,47 @@ function BlogListPage(props) {
     <Layout title={title} description={blogDescription} wrapperClassName={ThemeClassNames.wrapper.blogPages}>
       {isFirstPage && <Banner />}
 
-      {/* 展示标题 */}
-      <h1 className={style.home_news_blog_title}>
-        最新博客 &nbsp;
-        <NewBlog />
-      </h1>
+      <div className={style.home_blogPost_container}>
+        {/* 展示标题 */}
+        <h1 className={style.home_news_blog_title}>
+          最新博客 &nbsp;
+          <NewBlog />
+        </h1>
 
-      {/* 切换列表展示形式 */}
-      <div className={style.home_switch_view}>
-        <CardType
-          onClick={() => setType('card')}
-          className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'card' })}
-        />
-        <ListType
-          onClick={() => setType('list')}
-          className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'list' })}
-        />
+        {/* 切换列表展示形式 */}
+        <div className={style.home_switch_view}>
+          <CardType
+            onClick={() => setType('card')}
+            className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'card' })}
+          />
+          <ListType
+            onClick={() => setType('list')}
+            className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'list' })}
+          />
+        </div>
+
+        {/* 博客列表 */}
+        <div
+          className={clsx({
+            [style.home_blogList_card]: type === 'card',
+            [style.home_blogList_list]: type === 'list',
+          })}
+        >
+          {items.map(({ content: BlogPostContent }) => (
+            <div className={clsx(style.home_blogItem)} key={BlogPostContent.metadata.permalink}>
+              {type === 'card' ? (
+                <BlogCardItem {...BlogPostContent.metadata}>
+                  <BlogPostContent />
+                </BlogCardItem>
+              ) : (
+                <BlogListItem {...BlogPostContent.metadata} />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <BlogListPaginator metadata={metadata} />
       </div>
-
-      {/* 博客列表 */}
-      <div
-        className={clsx(style.home_blogList_container, {
-          [style.home_blogList_card]: type === 'card',
-          [style.home_blogList_list]: type === 'list',
-        })}
-      >
-        {items.map(({ content: BlogPostContent }) => (
-          <div className={clsx(style.home_blogItem)} key={BlogPostContent.metadata.permalink}>
-            {type === 'card' ? (
-              <BlogCardItem {...BlogPostContent.metadata}>
-                <BlogPostContent />
-              </BlogCardItem>
-            ) : (
-              <BlogListItem {...BlogPostContent.metadata} />
-            )}
-
-            {/* <BlogPostItem
-              frontMatter={BlogPostContent.frontMatter}
-              assets={BlogPostContent.assets}
-              metadata={BlogPostContent.metadata}
-              truncated={BlogPostContent.metadata.truncated}
-            >
-              <BlogPostContent />
-            </BlogPostItem> */}
-          </div>
-        ))}
-      </div>
-
-      <BlogListPaginator metadata={metadata} />
     </Layout>
   );
 }

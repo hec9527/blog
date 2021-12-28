@@ -23,9 +23,9 @@
   fill: red;
 }
 
-.home_blogList_container {
+.home_blogPost_container {
   max-width: 1320px;
-  margin: 0 auto;
+  margin: 0 auto 4em;
 }
 
 .home_blogList_card > .home_blogItem {

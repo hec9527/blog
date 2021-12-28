@@ -47,3 +47,17 @@ html {
   width: 100vw;
   overflow: hidden auto;
 }
+
+/** 覆盖分页按钮样式 */
+.pagination-nav__link {
+  background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary-light));
+}
+
+.pagination-nav__link .pagination-nav__label {
+  color: #f5f5f5 !important;
+}
+
+.pagination-nav__link .pagination-nav__label::before,
+.pagination-nav__link .pagination-nav__label::after {
+  display: none;
+}
