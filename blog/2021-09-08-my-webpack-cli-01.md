@@ -37,9 +37,9 @@ webpack 是一个前端资源加载/打包工具,它根据模块的依赖进行�
 
 ## 系列文章
 
-- [webpack 入门](/blog/2021/09/08/my-webpack-cli-01)
-- [webpack 的四大核心概念](/blog/2021/09/09/my-webpack-cli-02)
-- [webpack 开发服务器](/blog/2021/09/10/my-webpack-cli-03)
+- [webpack 入门](/2021/09/08/my-webpack-cli-01)
+- [webpack 的四大核心概念](/2021/09/09/my-webpack-cli-02)
+- [webpack 开发服务器](/2021/09/10/my-webpack-cli-03)
 
 ## 初识 webpack
 

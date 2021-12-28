@@ -23,8 +23,6 @@ import BlogCardItem from './components/blog-card-item';
 import BlogListItem from './components/blog-list-item';
 
 function BlogListPage(props) {
-  console.log(props);
-
   const { metadata, items } = props;
   const {
     siteConfig: { title: siteTitle },

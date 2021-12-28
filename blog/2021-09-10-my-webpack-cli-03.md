@@ -16,9 +16,9 @@ tags: [webpack]
 
 ## 系列文章
 
-- [webpack 入门](/blog/2021/09/08/my-webpack-cli-01)
-- [webpack 的四大核心概念](/blog/2021/09/09/my-webpack-cli-02)
-- [webpack 开发服务器](/blog/2021/09/10/my-webpack-cli-03)
+- [webpack 入门](/2021/09/08/my-webpack-cli-01)
+- [webpack 的四大核心概念](/2021/09/09/my-webpack-cli-02)
+- [webpack 开发服务器](/2021/09/10/my-webpack-cli-03)
 
 ## 使用 webpack 开发服务器
 
