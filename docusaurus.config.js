@@ -24,40 +24,6 @@ module.exports = {
         src: 'img/avatar.jpg',
       },
       items: [
-        // {
-        //   label: '主页',
-        //   href: '/',
-        //   position: 'right',
-        // },
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'right',
-        //   label: 'Tutorial',
-        // },
-        // { to: '/blog', label: '博客', position: 'right' },
-        // {
-        //   label: '阅读源码',
-        //   position: 'right',
-        //   items: [
-        //     {
-        //       label: 'vue',
-        //       href: 'https://v3.cn.vuejs.org',
-        //     },
-        //     {
-        //       label: 'react',
-        //       href: 'https://react.docschina.org',
-        //     },
-        //     {
-        //       label: 'lodash',
-        //       href: '/',
-        //     },
-        //     {
-        //       label: '我的',
-        //       href: '/review',
-        //     },
-        //   ],
-        // },
         {
           label: 'Demo',
           position: 'right',
@@ -83,52 +49,56 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    // style: 'dark',
-    // style: 'light',
-    // links: [
-    //   {
-    //     title: 'Docs',
-    //     items: [
-    //       {
-    //         label: 'Tutorial',
-    //         to: '/docs/intro',
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     title: 'Community',
-    //     items: [
-    //       {
-    //         label: 'Stack Overflow',
-    //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-    //       },
-    //       {
-    //         label: 'Discord',
-    //         href: 'https://discordapp.com/invite/docusaurus',
-    //       },
-    //       {
-    //         label: 'Twitter',
-    //         href: 'https://twitter.com/docusaurus',
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     title: 'More',
-    //     items: [
-    //       {
-    //         label: 'Blog',
-    //         to: '/blog',
-    //       },
-    //       {
-    //         label: 'GitHub',
-    //         href: 'https://github.com/facebook/docusaurus',
-    //       },
-    //     ],
-    //   },
-    // ],
-    // copyright: `Copyright © ${new Date().getFullYear()} Hec9527 Built with Docusaurus.`,
-    // },
+    footer: {
+      style: 'dark',
+      // style: 'light',
+      links: [
+        {
+          title: '社交媒体',
+          items: [
+            {
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/users/11867107/hec9527',
+            },
+            {
+              label: 'Github',
+              href: 'https://github.com/hec9527',
+            },
+            {
+              label: '思否',
+              href: 'https://segmentfault.com/u/hec9527',
+            },
+            {
+              label: '知乎',
+              href: 'https://www.zhihu.com/people/hec9527',
+            },
+          ],
+        },
+        {
+          title: '小案例',
+          items: [
+            {
+              label: 'canvas绘制时钟',
+              href: 'https://github.com/hec9527/demo_canvas/tree/master/demo01-%E7%BB%98%E5%88%B6%E9%92%9F%E8%A1%A8',
+            },
+            {
+              label: 'particles',
+              href: 'https://github.com/hec9527/demo_canvas/tree/master/demo12-%E4%BB%BFparticles%E5%BA%93',
+            },
+          ],
+        },
+        {
+          title: '友情链接',
+          items: [
+            {
+              label: '峰华前端工程师',
+              href: 'https://zxuqian.cn/',
+            },
+          ],
+        },
+      ],
+      copyright: `<p>Copyright © ${new Date().getFullYear()} Hec9527 Built with Docusaurus.</p><p><a target="__blank" href="https://beian.miit.gov.cn">京ICP备2021039852号-1</a></p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/creative-commons-license-icon.png" /></a><br />本站所有内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-Hans" >CC BY-NC 4.0 协议</a>，转载须注明署名和出处，且不可用于商业用途。`,
+    },
   },
   presets: [
     [
@@ -153,6 +123,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
         },
       },
     ],

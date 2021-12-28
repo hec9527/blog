@@ -35,15 +35,13 @@ function BlogListPage(props) {
 
   return (
     <Layout title={title} description={blogDescription} wrapperClassName={ThemeClassNames.wrapper.blogPages}>
-      <Banner />
+      {isFirstPage && <Banner />}
 
       {/* 展示标题 */}
-      {isFirstPage && (
-        <h1 className={style.home_news_blog_title}>
-          最新博客 &nbsp;
-          <NewBlog />
-        </h1>
-      )}
+      <h1 className={style.home_news_blog_title}>
+        最新博客 &nbsp;
+        <NewBlog />
+      </h1>
 
       {/* 切换列表展示形式 */}
       <div className={style.home_switch_view}>
