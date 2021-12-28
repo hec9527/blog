@@ -8,6 +8,8 @@ description: 如何使用github-action持续发布
 tags: [github]
 ---
 
+![](img/2021-12-16-github-action/github-action.jpeg)
+
 Github Action 是 [Github](https://github.com) 于 2018 年推出的持续集成服务，通过 github 我们可以将持续继承过程中类似于代码拉取、lint 检查、运行测试、构建发布等过程编写成脚本，并且指定触发事件。在手动（定时任务）触发这些指定事件的时候运行脚本，这样将以前需要手动操作的流程变成了自动化处理，极大的节省了开发者的时间
 
 <!-- truncate -->
