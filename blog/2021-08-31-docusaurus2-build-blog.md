@@ -53,9 +53,11 @@ themeConfig: {
 
 ![](img/2021-08-31-docusaurus2/gitalk-demo.png)
 
+`--typescript`参数是可选的，如果添加了`--typescript`，则变换的组件为`ts`组件，否则为`js`
+
 ```shell
 # 使用这种方式弹出组件
-npm run swizzle <theme name> [component name]
+npm run swizzle <theme name> [component name] [--typescript]
 ```
 
 **插入评论组件分为以下几步**
