@@ -46,7 +46,7 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
               </a>
               <div>{props.authors[0].title}</div>
             </div>
-            <div className={style['blog-items_readTime']}>阅读时间：{props.readingTime.toFixed(0)}分钟</div>
+            <div className={style['blog-items_readTime']}>阅读时间：{Math.ceil(props.readingTime)}分钟</div>
           </div>
         </header>
 
