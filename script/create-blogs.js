@@ -1,8 +1,8 @@
-const inquiere = require('inquirer');
+const inquirer = require('inquirer');
 const shell = require('shelljs');
 const fs = require('fs');
 
-const tags = ['html', 'css', 'javascript', 'typescript', 'webpack', '面试', 'github'];
+const tags = ['html', 'css', 'javascript', 'typescript', 'webpack', 'react', 'vue', 'redux', '面试', 'github'];
 
 const questions = [
   {
@@ -30,7 +30,7 @@ const questions = [
 ];
 
 (async () => {
-  const { docTitle, docDesc, docTags } = await inquiere.prompt(questions);
+  const { docTitle, docDesc, docTags } = await inquirer.prompt(questions);
   const fullDocTitle = `${new Date().toISOString().slice(0, 10)}-${docTitle}`;
 
   if (!fs.existsSync(`blog/img/${fullDocTitle}`)) {

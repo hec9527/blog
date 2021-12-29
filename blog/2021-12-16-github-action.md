@@ -10,15 +10,11 @@ tags: [github]
 
 ![](img/2021-12-16-github-action/github-action.jpeg)
 
-Github Action 是 [Github](https://github.com) 于 2018 年推出的持续集成服务，通过 github 我们可以将持续继承过程中类似于代码拉取、lint 检查、运行测试、构建发布等过程编写成脚本，并且指定触发事件。在手动（定时任务）触发这些指定事件的时候运行脚本，这样将以前需要手动操作的流程变成了自动化处理，极大的节省了开发者的时间
-
-<!-- truncate -->
-
-链接： [Github 首页](https://github.com/hec9527)
-
 ## Github Action
 
 Github Action 是 [Github](https://github.com) 于 2018 年推出的持续集成服务，通过 github 我们可以将持续继承过程中类似于代码拉取、lint 检查、运行测试、构建发布等过程编写成脚本，并且指定触发事件。在手动（定时任务）触发这些指定事件的时候运行脚本，这样将以前需要手动操作的流程变成了自动化处理，极大的节省了开发者的时间。
+
+<!-- truncate -->
 
 Github 把类似的拉取代码、lint 检查、运行测试等操作称为 action，如果你需要某个 action，也不需要自己从头写一个脚本，github 中托管有大量的第三方 action，使用者可以直接引用别人写好的 action 即可。通常可以在 github 官网提供的市场[Github Action Market](https://github.com/marketplace?type=actions)搜索自己想要的 action，也可以在[awesome-actions](https://github.com/sdras/awesome-actions)仓库查找，这里分门别类的罗列了很多高品质 action。
 
