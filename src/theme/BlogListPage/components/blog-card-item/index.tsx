@@ -37,9 +37,13 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
             <a href={props.permalink}>{props.title}</a>
           </h2>
           <div className={style.blog_items_author}>
-            <img className={style.blog_items_avatar} src={props.authors[0].imageURL} alt='author-avatar' />
+            <a href={props.authors[0].url} target='_blank'>
+              <img className={style.blog_items_avatar} src={props.authors[0].imageURL} alt='author-avatar' />
+            </a>
             <div className={style.blog_items_author_info}>
-              <a href={props.authors[0].url}>{props.authors[0].name}</a>
+              <a href={props.authors[0].url} target='_blank'>
+                {props.authors[0].name}
+              </a>
               <div>{props.authors[0].title}</div>
             </div>
             <div className={style['blog-items_readTime']}>阅读时间：{props.readingTime.toFixed(0)}分钟</div>
