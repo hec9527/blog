@@ -4,16 +4,18 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import React from 'react';
 import Seo from '@theme/Seo';
 import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
+import type { Props } from '@theme/BlogPostPage';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import TOC from '@theme/TOC';
 import GitTalkCommit from '../GitTalkCommit';
 
-function BlogPostPage(props) {
+function BlogPostPage(props: Props): JSX.Element {
   const { content: BlogPostContents, sidebar } = props;
   const {
     // TODO this frontmatter is not validated/normalized, it's the raw user-provided one. We should expose normalized one too!
@@ -28,7 +30,9 @@ function BlogPostPage(props) {
     toc_min_heading_level: tocMinHeadingLevel,
     toc_max_heading_level: tocMaxHeadingLevel,
   } = frontMatter;
+
   const image = assets.image ?? frontMatter.image;
+
   return (
     <BlogLayout
       wrapperClassName={ThemeClassNames.wrapper.blogPages}
@@ -40,7 +44,8 @@ function BlogPostPage(props) {
         ) : undefined
       }
     >
-      <Seo // TODO refactor needed: it's a bit annoying but Seo MUST be inside BlogLayout
+      <Seo
+        // TODO refactor needed: it's a bit annoying but Seo MUST be inside BlogLayout
         // otherwise  default image (set by BlogLayout) would shadow the custom blog post image
         title={title}
         description={description}
@@ -60,7 +65,6 @@ function BlogPostPage(props) {
               .join(',')}
           />
         )}
-
         {tags.length > 0 && <meta property='article:tag' content={tags.map((tag) => tag.label).join(',')} />}
       </Seo>
 
