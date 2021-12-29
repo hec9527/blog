@@ -3,7 +3,7 @@ title: 使用docusaurus2搭建个人博客
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
-author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
+author_image_url: /img/avatar-circle.png
 description: 每次搬迁博客之前都在纠结到底要不要搬，毕竟博客搬迁费时费力，如果没有解决之前的痛点，得到想要的效果，还不如不搬
 tags: ['其它']
 ---

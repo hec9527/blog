@@ -3,7 +3,7 @@ title: 使用webpack搭建脚手架（二）
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
-author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
+author_image_url: /img/avatar-circle.png
 description: 上一篇文章我们提到，使用webpack-cli通过命令行参数的方式可以配置webpack，但是webpack配置繁多且复杂，如果我们将所有的配置都通过命令行配置，不仅阅读性差而且修改起来及其不方便同时某些配置也无法实现
 tags: [webpack]
 ---

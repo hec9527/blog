@@ -3,7 +3,7 @@ title: 浏览器多标签通信
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
-author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
+author_image_url: /img/avatar-circle.png
 description: 浏览器多标签通信
 tags: [html, javascript, 面试]
 ---

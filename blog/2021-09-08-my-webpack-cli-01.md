@@ -3,7 +3,7 @@ title: 使用webpack搭建脚手架（一）
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
-author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
+author_image_url: /img/avatar-circle.png
 description: webpack是一个前端资源加载/打包工具,它根据模块的依赖进行静态分析,然后将这些模块按照特地的规则生成对应的静态资源
 tags: [webpack]
 ---

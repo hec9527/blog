@@ -3,7 +3,7 @@ title: 使用webpack搭建脚手架（三）
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
-author_image_url: https://avatars.githubusercontent.com/u/28671232?v=4
+author_image_url: /img/avatar-circle.png
 description: 之前的案例我们讲解了webpackd的基本用法，但是介于每次改动内容都需要手动打包内容，实在是太麻烦了。现在我们尝试使用webpack搭建开发服务器
 tags: [webpack]
 ---
