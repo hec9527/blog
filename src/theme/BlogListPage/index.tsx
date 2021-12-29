@@ -4,17 +4,19 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BlogListPaginator from '@theme/BlogListPaginator';
+import type { Props } from '@theme/BlogListPage';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import clsx from 'clsx';
 
 import CardType from '@site/static/svg/card.svg';
 import ListType from '@site/static/svg/list.svg';
 import NewBlog from '@site/static/svg/new.svg';
-
 import useViewType from '@site/src/hooks/useViewType';
 
 import style from './index.module.css';
@@ -22,7 +24,7 @@ import Banner from './components/banner';
 import BlogCardItem from './components/blog-card-item';
 import BlogListItem from './components/blog-list-item';
 
-function BlogListPage(props) {
+function BlogListPage(props: Props): JSX.Element {
   const { metadata, items } = props;
   const {
     siteConfig: { title: siteTitle },
