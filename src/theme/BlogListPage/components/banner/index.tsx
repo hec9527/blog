@@ -1,12 +1,16 @@
 import React from 'react';
 import style from './index.module.css';
 import BgSrc from '@site/static/img/home-bg.jpeg';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faWeixin, faZhihu, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import Scroll from '../scroll';
 
 const HomeBanner: React.FC = () => {
   return (
     <div className={style.banner_container}>
+      <BrowserOnly>{() => <Scroll />}</BrowserOnly>
+
       <img className={style.banner_img} src={BgSrc} alt='logo' />
       <div className={style.banner_content}>
         <h1>Hec9257的博客</h1>

@@ -9,6 +9,7 @@
   display: block;
   width: 100%;
   object-fit: cover;
+  transition: 0.1s ease-in-out;
 }
 
 .banner_content {
