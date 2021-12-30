@@ -17,6 +17,8 @@
   --ifm-color-primary-lightest: #83ccb2;
   --ifm-code-font-size: 95%;
 
+  --ifm-color-grey-500: #8d949e;
+
   /* 容器mask */
   --ifm-color-container-mask: transparent;
   /* 首页博客列表卡片容器阴影 */

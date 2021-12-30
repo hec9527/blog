@@ -3,7 +3,9 @@
 }
 
 .blog_items_title {
-  color: #283d57;
+  /* color: var(--ifm-color-primary); */
+  color: var(--ifm-font-color-base);
+  font-size: 0.8em;
 }
 .blog_items_title:hover {
   text-decoration: none;
@@ -12,7 +14,7 @@
 .blog_items_footer {
   display: flex;
   justify-content: space-between;
-  color: #8d949e;
+  color: var(--ifm-color-grey-500);
 }
 
 .blog_items_tag {
@@ -20,8 +22,8 @@
   padding: 4px 8px;
   border-radius: 6px;
   margin-right: 0.5em;
-  border: 1px solid var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary-light);
   text-decoration: none !important;
   font-size: 0.5em;
-  color: #283d57;
+  color: var(--ifm-font-color-base);
 }
