@@ -16,7 +16,15 @@
   --ifm-color-primary-lighter: #5cbfa0;
   --ifm-color-primary-lightest: #83ccb2;
   --ifm-code-font-size: 95%;
+
+  /* 容器mask */
+  --ifm-container-mask-color: transparent;
 }
+
+:root[data-theme='dark'] {
+  --ifm-container-mask-color: rgba(34, 34, 34, 0.4);
+}
+
 /* :root {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;

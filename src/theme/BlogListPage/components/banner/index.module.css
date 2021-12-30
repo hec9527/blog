@@ -1,7 +1,19 @@
 .banner_container {
   position: relative;
   height: calc(100vh - 60px);
-  background: #abf4;
+  background: #799ff3;
+}
+
+.banner_container::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--ifm-container-mask-color);
+  content: '';
+  display: block;
+  pointer-events: none;
 }
 
 .banner_img {
@@ -9,12 +21,12 @@
   display: block;
   width: 100%;
   object-fit: cover;
-  transition: 0.1s ease-in-out;
 }
 
 .banner_content {
   position: absolute;
   margin: auto;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
