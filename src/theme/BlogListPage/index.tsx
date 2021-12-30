@@ -10,8 +10,8 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import BlogListPaginator from '@theme/BlogListPaginator';
-import type { Props } from '@theme/BlogListPage';
 import { ThemeClassNames } from '@docusaurus/theme-common';
+import type { Props } from '@theme/BlogListPage';
 import clsx from 'clsx';
 
 import CardType from '@site/static/svg/card.svg';
