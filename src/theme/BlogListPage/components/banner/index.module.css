@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--ifm-container-mask-color);
+  background: var(--ifm-color-container-mask);
   content: '';
   display: block;
   pointer-events: none;

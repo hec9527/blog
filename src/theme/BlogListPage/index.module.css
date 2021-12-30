@@ -49,11 +49,11 @@
 
 .home_blogItem {
   border: 1px solid #e3e3e36e;
-  box-shadow: 1px 1px 8px #ced1d6, -1px -1px 8px #fff;
+  box-shadow: var(--ifm-color-blog-list-card);
   transition: 0.25s ease-in-out;
 }
 
 .home_blogList_card > .home_blogItem:hover {
   transform: translateY(-5px);
-  box-shadow: 15px 15px 60px #ced1d6, -15px -15px 60px #fff;
+  box-shadow: var(--ifm-color-blog-list-card-hover);
 }
