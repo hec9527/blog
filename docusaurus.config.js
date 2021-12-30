@@ -2,7 +2,7 @@
 module.exports = {
   title: 'hec9527的博客',
   tagline: 'Build With Docusaurus',
-  url: 'https://blog.hec9527.top',
+  url: 'https://hec9527.top',
   baseUrl: '/',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/avatar-circle.png',
@@ -53,6 +53,23 @@ module.exports = {
       style: 'dark',
       // style: 'light',
       links: [
+        {
+          title: '本站资源',
+          items: [
+            {
+              label: '博客归档',
+              href: '/archive',
+            },
+            {
+              label: '站内搜索',
+              href: '/search',
+            },
+            {
+              label: '标签',
+              href: '/tags',
+            },
+          ],
+        },
         {
           title: '社交媒体',
           items: [
