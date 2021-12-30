@@ -9,6 +9,7 @@ author_title: 前端切图工程师
 author_url: https://github.com/hec9527
 author_image_url: /img/avatar-circle.png
 description: <%= desc %>
+keywords: [<%= tags %>]
 tags: [<%= tags|| "其它" %>]
 ---
 

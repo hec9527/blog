@@ -13,7 +13,7 @@ module.exports = {
     image: 'img/avatar-circle.png',
     algolia: {
       appId: '7HXI0RXPQH',
-      apiKey: 'ca105e73cac40121b52d7cbceec82224',
+      apiKey: '0de48b50ec944e8731b345810fa0d639',
       indexName: 'hec_blog',
       contextualSearch: true,
     },
