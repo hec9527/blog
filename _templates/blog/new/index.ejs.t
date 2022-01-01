@@ -11,12 +11,13 @@ author_image_url: /img/avatar-circle.png
 description: <%= desc %>
 keywords: [<%= tags %>]
 tags: [<%= tags|| "其它" %>]
+draft: true
+# image:
 ---
 
 <%= desc %>
 
 <!-- truncate -->
 
-链接： [Github首页](https://github.com/hec9527)
 
 
