@@ -17,6 +17,13 @@ draft: true
 
 <!-- truncate -->
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 说明
+
+如果觉得过程太详细，可以直接查看每个小结最后总结，本博客所有案例均可在[github 案例源码](https://github.com/hec9527/blog/tree/master/demo/跨域解决方法)获取
+
 ## 什么是跨域
 
 在知道什么是跨域之前，需要先知道什么是同源策略，我们看看 `MDN` 的定义
@@ -375,4 +382,76 @@ router.all('/', function (req, res) {
 
 ### 前端代理
 
-### 反响代理（后端代理）
+前端代理的典型就是 webpack 开发服务器，通过前端代理服务器代理请求，实现跨域访问的能力。下面我们就来一步步实现前端代理，首先我们快速创建一个前端项目，也可以直接克隆现成的[案例](https://github.com/hec9527/blog/tree/master/demo/跨域解决方法/前端代理)
+
+<Tabs groupId="fed-proxy">
+<TabItem value="package" label="package.json">
+
+```json title="package.json"
+{
+  "name": "fed-proxy",
+  "version": "1.0.0",
+  "description": "跨域资源前端代理",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development"
+  },
+  "author": "hec9527",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="webpack.config.js" label="webpack.config.js">
+
+```js title='webpack.config.js'
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+/** @type {import("webpack").Configuration} */
+const config = {
+  entry: './src/index.js',
+  output: { clean: true },
+  devServer: {
+    port: '8080',
+    proxy: {
+      '/proxy': {
+        target: 'http://localhost:3000',
+        pathRewrite: { '^/proxy': '' },
+      },
+    },
+  },
+  plugins: [new HtmlWebpackPlugin()],
+};
+module.exports = config;
+```
+
+</TabItem>
+
+<TabItem value="index.js" label="index.js">
+
+```js title="src/index.js"
+fetch('/proxy');
+```
+
+</TabItem>
+</Tabs>
+
+我们继续使用之前的 `express` 服务器作为测试服务器，同时注释掉 CORS 中间件，不允许跨源访问资源，克隆上面的代码或者手写一份，然后执行 `npm run dev` 启动开发服务器。在浏览器中访问：`http:localhost:8080`，查看 `devtool` 在可以看到成功的拿到了后端返回的数据
+
+![](img/2021-12-30-cross-domain/前端代理-成功.png)
+
+前端代理的原理是，前端项目和后端服务部署在相同源，比如上面的 express 服务，我们在 express 服务的 `server/public`中新建的 `html` 资源可以直接在浏览器中访问到，比如 `http:localhost:3000/public/CORS/index.html`。此时 `html` 资源在`http:localhost:3000`，后端服务也在`http:localhost:3000`，这时候就不存在跨域问题了，可以直接访问。但是这里的服务并不是真正处理业务的服务，给它发请求并不能给我们数据，所以为了拿到后端的数据我们还需要想其它办法。值得之一的是：**同源策略**只针对浏览器，express 之类的后端服务并没有这个限制，所以这些服务可以在收到前端请求的时候，将这个请求转发到对应的业务服务器，接收到数据后再发送给前端，当了一次中间人。
+
+:::info
+**总结：** 前端代理是本地启一个 node（也可以是其它）服务，前端项目作为这个服务器的静态资源，前端项目访问后端服务的时候，将对应的请求转到发到真实的后端服务，接收到请求后再发送给前端。主要利用的是后端服务不受**同源策略**限制
+:::
+
+### 反向代理（后端代理）
