@@ -7,7 +7,7 @@ author_image_url: /img/avatar-circle.png
 description: 什么是跨域，如何解决前端开发工作中的跨域问题？各种方案都有什么优劣？解决前端跨域，看这一篇博客就够了！
 keywords: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax, 前端代理, 后端代理]
 tags: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax, 前端代理, 后端代理]
-draft: true
+# draft: true
 # image:
 ---
 
