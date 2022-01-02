@@ -1,12 +1,12 @@
 ---
-title: 解决前端跨域，看这一篇博客就够了
+title: 解决跨域，看这一篇博客就够了
 author: hec9527
 author_title: 前端切图工程师
 author_url: https://github.com/hec9527
 author_image_url: /img/avatar-circle.png
 description: 什么是跨域，如何解决前端开发工作中的跨域问题？各种方案都有什么优劣？解决前端跨域，看这一篇博客就够了！
-keywords: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax]
-tags: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax]
+keywords: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax, 前端代理, 后端代理]
+tags: [javascript, webpack, 面试, 跨域, jsonp, CORS, ajax, 前端代理, 后端代理]
 draft: true
 # image:
 ---
@@ -452,6 +452,95 @@ fetch('/proxy');
 
 :::info
 **总结：** 前端代理是本地启一个 node（也可以是其它）服务，前端项目作为这个服务器的静态资源，前端项目访问后端服务的时候，将对应的请求转到发到真实的后端服务，接收到请求后再发送给前端。主要利用的是后端服务不受**同源策略**限制
+
+优点：
+
+- 前端可以自己解决跨域问题，JSONP 和 CORS 都需要后端配合
+
+缺点：
+
+- 仅在开发时有效，上线后实际使用的用户不可能自己配置代理服务
+
 :::
 
 ### 反向代理（后端代理）
+
+后端代理的原理和前端代理差不多，都是利用服务端不受同源策略限制的特性，但是实现方式却不一样，因为代理的服务在后端，这里我们以 Nginx 服务器为例
+
+首先在服务器上搭建一个 express 服务作为我们的业务服务器，挂载在`http://test.hec9527.top:10086`
+
+![](img/2021-12-30-cross-domain/反向代理-express.png)
+
+创建一个 html 文件，添加以下脚本，使用 nginx 同样托管在`http://test.hec9527.top`（前端项目上线后基本也是使用 Nginx 直接托管静态资源），需要注意的是，这里没有带端口号，走默认的 80 端口
+
+```html title='index.html'
+<script>
+  fetch('http://test.hec9527.top:10086');
+</script>
+```
+
+在浏览器中打开 `http://test.hec9527.top` 查看，红色线框处显示跨域，这是因为我们后端服务托管在`http://test.hec9527.top:10086`，而前端项目托管在 `http://test.hec9527.top:80`，这两个地址端口不一样，所以跨域。下面我们配置一下 nginx，代理一下后端接口
+
+![](img/2021-12-30-cross-domain/反向代理-express-跨域.png)
+
+:::note
+如果不知道 nginx 实际使用的配置文件是哪个也不知道在哪里，可以使用 `nginx -t` 查看
+
+```zsh
+[root@VM-24-15-centos ~]# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+:::
+
+在 nginx 配置文件的 http 模块中添加以下内容，使用 `nginx -t` 测试 nginx 配置文件没问题后，使用 `nginx -s reload`重启服务
+
+```
+server {
+    listen   80;
+    listen   [::]:80;
+    root     /path/to/index/file
+
+    location /proxy_express/ {
+        proxy_pass      http://0.0.0.0:10086/;
+    }
+}
+```
+
+:::warning
+这里配置代理需要注意， `proxy_pass`后面的地址带`/`会将请求转发到根路径，如果不带`/`转发的时候会带上 `/proxy_express/`
+
+:::
+
+同时修改一下 index.html，这次我们不再直接请求后端接口，而是请求托管前端资源的服务器，让这个服务器代理我们的请求，从而避开跨域的问题。
+
+```html {2,3}
+<script>
+  // fetch('http://test.hec9527.top:10086');
+  fetch('http://test.hec9527.top/proxy_express/');
+</script>
+```
+
+在浏览器中测试一下， nice，没有报跨域的问题，成功拿到后端的数据
+
+![](img/2021-12-30-cross-domain/反向代理-express-成功.png)
+
+:::info
+**总结：** 正向代理（前端代理）是在开发侧启动代理服务，而后端代理则是在真实的服务侧启动代理服务
+
+优点：
+
+- 前端、后端都不需要做任何修改，只需要运维配置反向代理服务
+- 用户不能直接访问后端服务，具备额外安全性
+
+缺点：
+
+- 需要代理服务，前端无法和后端交互，增加请求响应时间
+- 代理服务器压力过大，当请求量超过代理服务器最大负载时，会直接影响后端集群性能
+
+:::
+
+## 总结
+
+解决跨域的方式多种多样，没有最好的只有最适合的，需要根据每个项目的实际情况选择最合适的跨域解决方案，如果兼容`IE<=10`则选 JSONP 或者后端代理，如果是开发阶段，可以选择前端代理。只考虑现代浏览器，首推 CORS。
