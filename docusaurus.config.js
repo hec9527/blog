@@ -123,7 +123,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/hec9527/blog/edit/main/',
+          editUrl: 'https://github.com/hec9527/blog/edit/master/',
         },
         blog: {
           routeBasePath: '/',
@@ -131,7 +131,7 @@ module.exports = {
           blogDescription: 'hec9527的博客，前端工程师的逆袭之路',
           blogSidebarTitle: '最新博客',
           showReadingTime: true,
-          editUrl: 'https://github.com/hec9527/blog/edit/main/',
+          editUrl: 'https://github.com/hec9527/blog/edit/master/',
           feedOptions: {
             type: 'all',
             title: 'hec9527',
