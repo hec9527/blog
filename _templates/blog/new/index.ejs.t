@@ -11,7 +11,7 @@ author_image_url: /img/avatar-circle.png
 description: <%= desc %>
 keywords: [<%= tags %>]
 tags: [<%= tags|| "其它" %>]
-draft: true
+# draft: true
 # image:
 ---
 
