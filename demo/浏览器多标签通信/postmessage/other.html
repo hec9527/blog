@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>接收方测试</title>
+  </head>
+  <body>
+    <h1>接收方 <small>下面</small></h1>
+
+    <script>
+      (function () {
+        window.addEventListener(
+          'DOMContentLoaded',
+          (e) => {
+            window.opener.postMessage({ type: 'INIT' }, '*');
+            setInterval(() => {
+              window.opener.postMessage({ type: 'showTime', Date: new Date() }, '*');
+            }, 1000);
+          },
+          { once: true },
+        );
+      })();
+
+      window.addEventListener('message', (e) => {
+        console.log(e);
+        document.body.innerHTML += `<p>${JSON.stringify(e.data)}</p>`;
+      });
+    </script>
+  </body>
+</html>
