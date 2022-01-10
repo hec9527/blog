@@ -119,3 +119,86 @@ tags: [html, javascript, 面试]
 :::caution
 不太推荐将 Cookie 用于跨标签信息传递，因为 Cookie 大多时候用于保存用户的身份验证信息，在发送请求的时候会发送到服务器，如果 Cookie 保存太多无用的信息会导致服务器流量的浪费
 :::
+
+## postMessage
+
+`window.postMessage`是 H5 新增的特性，可安全地实现跨源通信，也可以用于跨标签通信。使用方式如下
+
+```js
+otherWindow.postMessage(message, targetOrigin, [transfer]);
+```
+
+#### `otherWindow`
+
+其它窗口的引用，可以来自于`window.open`也可以来自于`iframe`标签的 `contentWindow` 属性
+
+#### `message`
+
+将要发送给其它窗口的数据，该数据会被序列化，可以安全的传输 JSON 对象以及其他结构化数据，目标窗口接收到的数据是反序列化后的结果，使用时无需关注序列化和反序列化
+
+#### `targetOrigin`
+
+通过指定 `targetOrigin` 来限制哪些窗口能接收到消息事件，其值可以是某个具体的 URI 也可以是`"*"`，使用`"*"`表示向所有站点广播消息，当可以明确接受窗口 `origin` 时，尽量使用具体的值
+
+#### `transfer`
+
+可选， 和 `message` 一起发送的对象， 很少使用
+
+### 使用案例
+
+简单了解完 postMessage 的使用方法后，我们来看看下面这个案例，这个案例中实现了两个域名的窗口的跨域通信。 可以自己手撸代码也可以[github 地址](https://github.com/hec9527/blog/tree/master/demo/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%9A%E6%A0%87%E7%AD%BE%E9%80%9A%E4%BF%A1/postmessage)中直接下载源码
+
+我们在本地新建一个 html 文件作为发送方，这里通过使用 `window.open` 来获取其它窗口的引用
+
+```html title="index.html"
+<script>
+  const otherUrl = 'http://localhost:53784/other.html';
+  const otherWindow = window.open(otherUrl, '__blank');
+
+  window.addEventListener('message', (e) => {
+    console.log('获取响应消息：', e);
+    if (e.data.type === 'INIT') {
+      return setInterval(() => {
+        otherWindow.postMessage({ type: 'showGreeting', msg: 'hello world from index.html' }, '*');
+      }, 3000);
+    }
+    document.body.innerHTML += `<p>响应：${JSON.stringify(e.data)}</p>`;
+  });
+</script>
+```
+
+下面接着添加消息接收方，尝试运行案例时，请将发送方中 `otherUrl` 修改为接收方实际的地址
+
+```html title='other.html'
+<script>
+  (function () {
+    window.addEventListener(
+      'DOMContentLoaded',
+      (e) => {
+        window.opener.postMessage({ type: 'INIT' }, '*');
+        setInterval(() => {
+          window.opener.postMessage({ type: 'showTime', Date: new Date() }, '*');
+        }, 1000);
+      },
+      { once: true },
+    );
+  })();
+
+  window.addEventListener('message', (e) => {
+    console.log(e);
+    document.body.innerHTML += `<p>${JSON.stringify(e.data)}</p>`;
+  });
+</script>
+```
+
+解释一下代码流程：
+
+1. 发送方通过 `window.open` 打开一个新的窗口并且获得这个窗口的引用
+2. 接收方页面加载完成后，通过 `window.opener` 获取打开当前窗口的窗口的引用，通过这个窗口引用发送 `INIT` 消息，并且定时发送消息给发送方
+3. 发送方接收到消息后，开始定时给接收方发送消息，并且将接收方发送的消息添加到 dom
+
+:::info
+
+最近简单看了一下 `vscode` 的源码发现 `vscode` 中 `webview` 实际上也是一个 `iframe` 标签，在创建 `webview` 的时候保存窗口的引用，然后在 `webview` 中添加 `acquireVsCodeApi` 来实现 `webview` 与 `vscode` 之间的消息通信
+
+:::
