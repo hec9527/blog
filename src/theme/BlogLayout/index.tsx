@@ -9,6 +9,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import BlogSidebar from '@theme/BlogSidebar';
+import BackTop from '@site/src/components/back-to-top';
 import style from './index.module.css';
 
 import type { Props } from '@theme/BlogLayout';
@@ -47,6 +48,7 @@ function BlogLayout(props: Props): JSX.Element {
           </div>
         </div>
       </div>
+      <BackTop />
     </Layout>
   );
 }

@@ -1,0 +1,15 @@
+.scroll_top_hide {
+  display: none;
+}
+
+.scroll_top {
+  cursor: pointer;
+  position: fixed;
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+  background-color: #fff;
+  padding: 0.7em;
+  right: 5em;
+  bottom: 3em;
+}
