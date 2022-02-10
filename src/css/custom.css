@@ -29,12 +29,14 @@
 
 :root[data-theme='dark'] {
   /* 容器mask */
-  --ifm-color-container-mask: rgba(34, 34, 34, 0.4);
+  --ifm-color-container-mask: rgba(34, 34, 34, 0.281);
   /* 首页博客列表卡片容器阴影 */
   /* --ifm-color-blog-list-card: 1px 1px 8px rgba(173, 175, 179, 0.4), -1px -1px 8px rgba(200, 200, 200, 0.4); */
   --ifm-color-blog-list-card: 0 0 20px rgba(173, 175, 179, 0.4);
   /* --ifm-color-blog-list-card-hover: 15px 15px 60px rgba(173, 175, 179, 0.4), -5px -5px 40px rgb(150, 150, 150); */
   --ifm-color-blog-list-card-hover: 0 0 50px rgba(173, 175, 179, 0.9);
+
+  --ifm-color-grey-800: #f5f6f7;
 }
 
 /* :root {

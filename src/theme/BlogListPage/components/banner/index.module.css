@@ -1,7 +1,8 @@
 .banner_container {
   position: relative;
   height: calc(100vh - 60px);
-  background: #799ff3;
+  /* background: #799ff3; */
+  background: var(--ifm-color-primary);
 }
 
 .banner_container::after {
