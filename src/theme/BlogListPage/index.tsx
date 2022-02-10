@@ -16,16 +16,17 @@ import clsx from 'clsx';
 
 import CardType from '@site/static/svg/card.svg';
 import ListType from '@site/static/svg/list.svg';
-import NewBlog from '@site/static/svg/new.svg';
 import useViewType from '@site/src/hooks/useViewType';
 
 import style from './index.module.css';
+import Title from './components/title';
 import Banner from './components/banner';
+import RecentPost from './components/recent-post';
 import BlogCardItem from './components/blog-card-item';
 import BlogListItem from './components/blog-list-item';
 
 function BlogListPage(props: Props): JSX.Element {
-  const { metadata, items } = props;
+  const { metadata, items, sidebar } = props;
   const {
     siteConfig: { title: siteTitle },
   } = useDocusaurusContext();
@@ -35,51 +36,53 @@ function BlogListPage(props: Props): JSX.Element {
   const isFirstPage = metadata.page === 1;
   const [type, setType] = useViewType();
 
+  // console.log({ metadata, items, props });
+
   return (
     <Layout title={title} description={blogDescription} wrapperClassName={ThemeClassNames.wrapper.blogPages}>
       {isFirstPage && <Banner />}
 
-      <div className={style.home_blogPost_container}>
-        {/* 展示标题 */}
-        <h1 className={style.home_news_blog_title}>
-          最新博客 &nbsp;
-          <NewBlog />
-        </h1>
+      <main className={style.home_main_container}>
+        <div className={style.home_blogPost_container}>
+          <Title />
+          {/* 切换列表展示形式 */}
+          <div className={style.home_switch_view}>
+            <CardType
+              onClick={() => setType('card')}
+              className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'card' })}
+            />
+            <ListType
+              onClick={() => setType('list')}
+              className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'list' })}
+            />
+          </div>
 
-        {/* 切换列表展示形式 */}
-        <div className={style.home_switch_view}>
-          <CardType
-            onClick={() => setType('card')}
-            className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'card' })}
-          />
-          <ListType
-            onClick={() => setType('list')}
-            className={clsx(style.home_switch_items, { [style.home_switch_items_selected]: type === 'list' })}
-          />
+          {/* 博客列表 */}
+          <div
+            className={clsx({
+              [style.home_blogList_card]: type === 'card',
+              [style.home_blogList_list]: type === 'list',
+            })}
+          >
+            {items.map(({ content: BlogPostContent }) => (
+              <div className={clsx(style.home_blogItem)} key={BlogPostContent.metadata.permalink}>
+                {type === 'card' ? (
+                  <BlogCardItem {...BlogPostContent.metadata}>
+                    <BlogPostContent />
+                  </BlogCardItem>
+                ) : (
+                  <BlogListItem {...BlogPostContent.metadata} />
+                )}
+              </div>
+            ))}
+          </div>
+          <BlogListPaginator metadata={metadata} />
         </div>
 
-        {/* 博客列表 */}
-        <div
-          className={clsx({
-            [style.home_blogList_card]: type === 'card',
-            [style.home_blogList_list]: type === 'list',
-          })}
-        >
-          {items.map(({ content: BlogPostContent }) => (
-            <div className={clsx(style.home_blogItem)} key={BlogPostContent.metadata.permalink}>
-              {type === 'card' ? (
-                <BlogCardItem {...BlogPostContent.metadata}>
-                  <BlogPostContent />
-                </BlogCardItem>
-              ) : (
-                <BlogListItem {...BlogPostContent.metadata} />
-              )}
-            </div>
-          ))}
-        </div>
-
-        <BlogListPaginator metadata={metadata} />
-      </div>
+        <aside className={style.home_recent_post}>
+          <RecentPost data={sidebar} size={5} />
+        </aside>
+      </main>
     </Layout>
   );
 }
