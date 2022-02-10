@@ -1,5 +1,6 @@
 .recent_post_container {
   padding: 24px 0 24px 24px;
+  overflow: hidden;
   position: sticky;
   top: 80px;
 }
@@ -10,9 +11,11 @@
 
 .recent_post_item {
   list-style: none;
+  text-overflow: ellipsis;
 }
 
 .recent_post_link {
+  /* display: block; */
   font-size: 12.8px;
   color: var(--ifm-color-grey-800);
 }

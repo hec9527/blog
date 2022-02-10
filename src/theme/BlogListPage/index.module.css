@@ -15,7 +15,7 @@
 }
 
 .home_main_container {
-  max-width: 1320px;
+  max-width: 1240px;
   margin: 0 auto 4em;
   display: flex;
 }
@@ -25,7 +25,7 @@
 }
 
 .home_recent_post {
-  flex: 0 0 300px;
+  flex: 0 0 260px;
   position: relative;
   padding: 140px 0 0;
   padding-left: 32px;
