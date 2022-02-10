@@ -1,0 +1,9 @@
+.custom_sidebar_container {
+  position: relative;
+}
+
+.custom_sidebar_TOC {
+  margin-top: 2em;
+  position: sticky;
+  top: 100px;
+}
