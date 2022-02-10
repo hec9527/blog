@@ -3,7 +3,6 @@
 }
 
 .blog_items_title {
-  /* color: var(--ifm-color-primary); */
   color: var(--ifm-font-color-base);
   font-size: 0.8em;
 }

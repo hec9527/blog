@@ -3,7 +3,7 @@
 }
 
 .blog_items_matter {
-  flex: 0 0 314px;
+  flex: 0 0 15em;
 }
 
 .blog_items_content {
@@ -21,9 +21,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 168px;
+  width: 10em;
   margin: 0 auto;
-  border-radius: 84px;
+  border-radius: 100%;
   border-top: 1px solid #4b8cf7;
   border-bottom: 1px solid #f67;
 }
