@@ -133,7 +133,8 @@ module.exports = {
         blog: {
           routeBasePath: '/',
           blogTitle: 'hec9527 的博客',
-          blogDescription: 'hec9527的博客，前端工程师的逆袭之路',
+          blogDescription:
+            'hec9527的博客，这里有最新、最齐全、最有趣的技术分享以及实践demo，助你从前端小白逆袭成为大牛',
           blogSidebarTitle: '最新博客',
           showReadingTime: true,
           editUrl: 'https://github.com/hec9527/blog/edit/master/',
