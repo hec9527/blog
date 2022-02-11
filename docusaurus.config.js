@@ -13,6 +13,9 @@ module.exports = {
   themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     image: 'img/avatar-circle.png',
+    metadata: [
+      { name: 'keywords', content: 'hec9527的博客,前端,技术分享,前沿技术分享,9527,逆袭,react,webpack,vue,vscode' },
+    ],
     algolia: {
       appId: '7HXI0RXPQH',
       apiKey: '0de48b50ec944e8731b345810fa0d639',
