@@ -51,9 +51,11 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
         </header>
 
         <div className={style.blog_items_tags}>
-          <Tag />
+          <a href='/tags'>
+            <Tag />
+          </a>
           {props.tags.map((tag) => (
-            <a href={tag.permalink} key={tag.label}>
+            <a href={tag.permalink} key={tag.label} data-label='tag' title={tag.label}>
               {tag.label}
             </a>
           ))}

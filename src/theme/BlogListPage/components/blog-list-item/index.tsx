@@ -19,14 +19,14 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
         </h2>
       </header>
       <footer className={style.blog_items_footer}>
-        <div>
+        <div className={style.blog_items_tags}>
           {props.tags.slice(0, 5).map((tag) => (
             <a className={style.blog_items_tag} href={tag.permalink} key={tag.label}>
               {tag.label}
             </a>
           ))}
         </div>
-        <div>{new Date(props.date).toLocaleDateString().replace(/\//g, '-')}</div>
+        <div className={style.blog_items_readTime}>{new Date(props.date).toLocaleDateString().replace(/\//g, '-')}</div>
       </footer>
       {/*  */}
     </div>

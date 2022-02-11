@@ -16,6 +16,18 @@
   color: var(--ifm-color-grey-500);
 }
 
+.blog_items_tags {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  width: calc(100% - 100px);
+}
+
+.blog_items_readTime {
+  flex: 0 0 100px;
+  text-align: right;
+}
+
 .blog_items_tag {
   display: inline-block;
   padding: 4px 8px;
@@ -25,4 +37,10 @@
   text-decoration: none !important;
   font-size: 0.5em;
   color: var(--ifm-font-color-base);
+}
+
+@media screen and (max-width: 768px) {
+  .blog_items {
+    flex-direction: column;
+  }
 }
