@@ -18,8 +18,12 @@
 
 .blog_items_tags {
   flex: 1;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   width: calc(100% - 100px);
 }
 

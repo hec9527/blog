@@ -84,10 +84,16 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
-.blog_items_tags > a {
-  margin: 0 0.5em 1em 0;
+.blog_items_tags > a:not(:first-child) {
+  margin-right: 0.5em;
 }
 
 .blog_items_tags > a[data-label='tag'] {
