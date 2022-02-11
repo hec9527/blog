@@ -15,6 +15,7 @@ module.exports = {
     image: 'img/avatar-circle.png',
     metadata: [
       { name: 'keywords', content: 'hec9527的博客,前端,技术分享,前沿技术分享,9527,逆袭,react,webpack,vue,vscode' },
+      { name: 'sogou_site_verification', content: 'EAknj58qT8' },
     ],
     algolia: {
       appId: '7HXI0RXPQH',
