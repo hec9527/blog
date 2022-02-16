@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark no-preference" />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      body,
+      body.theme-light {
+        --text-color: #000;
+        --background-color: #f5f5f5;
+      }
+
+      body.theme-dark {
+        --text-color: #ddd;
+        --background-color: #35363a;
+      }
+
+      body {
+        color: var(--text-color);
+        background: var(--background-color);
+      }
+    </style>
+    <title>根据系统时间开启深色主题</title>
+  </head>
+  <body>
+    <input type="text" name="" id="" placeholder="Please input some word...  " />
+    <input type="date" />
+
+    <br />
+    <h2>根据系统时间开启深色主题</h2>
+    <p>修改系统时间为19:00~6:00开启深色模式</p>
+    <p>采用 setInterval 定时检测时间，存在最大1分钟的延迟</p>
+
+    <script>
+      let themeMode = 'light';
+      const mate = document.querySelector('meta[name="color-scheme"]');
+
+      function toggleTheme(target) {
+        if (target === themeMode) return;
+        const opposite = target === 'dark' ? 'light' : 'dark';
+        themeMode = target;
+        mate.content = target;
+        document.body.classList.add(`theme-${target}`);
+        document.body.classList.remove(`theme-${opposite}`);
+      }
+
+      setInterval(() => {
+        const now = new Date().toLocaleString().slice(10).replace(/\D/g, '');
+        toggleTheme(now < 60000 || now > 190000 ? 'dark' : 'light');
+      }, 60 * 1000);
+    </script>
+  </body>
+</html>

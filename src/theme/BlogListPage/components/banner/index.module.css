@@ -5,16 +5,8 @@
   background: var(--ifm-color-primary);
 }
 
-.banner_container::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--ifm-color-container-mask);
-  content: '';
-  display: block;
-  pointer-events: none;
+:root[data-theme='dark'] .banner_img {
+  filter: brightness(0.5);
 }
 
 .banner_img {

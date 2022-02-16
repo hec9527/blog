@@ -52,7 +52,7 @@
 }
 
 .home_blogItem {
-  border: 1px solid #e3e3e36e;
+  border: 1px solid var(--ifm-color-blog-list-card-border-color);
   box-shadow: var(--ifm-color-blog-list-card);
   transition: 0.25s ease-in-out;
 }
