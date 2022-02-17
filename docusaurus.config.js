@@ -17,6 +17,7 @@ module.exports = {
     metadata: [
       { name: 'keywords', content: 'hec9527的博客,前端,技术分享,前沿技术分享,9527,逆袭,react,webpack,vue,vscode' },
       { name: 'sogou_site_verification', content: 'EAknj58qT8' },
+      { name: 'google-site-verification', content: '10K-_Z0ATBf2yCfrzfqL-RPUoeAqiPNtIpb9K9fT9ok' },
     ],
     algolia: {
       appId: '7HXI0RXPQH',
