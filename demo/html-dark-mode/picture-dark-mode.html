@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 500px;
+      }
+
+      @media screen and (prefers-color-scheme: light), screen and(prefers-color-scheme: no-preference) {
+        body {
+          background: #fff;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #35363a;
+          color: #bbb;
+        }
+        .button {
+          color: #e5e5e5;
+          background: #2a5ecf;
+        }
+
+        .brightness {
+          filter: brightness(0.45);
+        }
+      }
+    </style>
+
+    <title>图片深色模式适配</title>
+  </head>
+  <body>
+    <h2>图片深色模式适配 --- 采用Picture</h2>
+    <p>通过 picture 元素以及source元素的 media 属性，做深色适配</p>
+    <p>修改系统主题色，查看效果</p>
+
+    <picture>
+      <source srcset="./img/dark.png" media="(prefers-color-scheme: dark)" />
+      <img src="./img/light.png" />
+    </picture>
+
+    <hr />
+
+    <h2>图片深色模式适配 --- 采用滤镜实现</h2>
+
+    <p>通过在深色模式中修改图片的亮度实现</p>
+
+    <p>修改系统主题色，查看效果</p>
+
+    <img src="./img/light.png" alt="" class="brightness" />
+  </body>
+</html>
