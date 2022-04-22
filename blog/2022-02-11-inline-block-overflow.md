@@ -23,7 +23,7 @@ tags: [html, css]
 
 ## 单行文本隐藏
 
-在解决问题之前我们先复习一下基本的超出隐藏的知识，在 css 中通过设置 `overflow:hidden` 来设置元素的超出隐藏，对于文本我们需要设置文本的超出隐藏 <a href="/inline-block-overflow/single-line-text.html" target="__blank">单行超出隐藏案例</a>
+在解决问题之前我们先复习一下基本的超出隐藏的知识，在 css 中通过设置 `overflow:hidden` 来设置元素的超出隐藏，对于文本我们需要设置文本的超出隐藏 <a href="/inline-block-overflow/single-line-text.html" target="_blank">单行超出隐藏案例</a>
 
 ```css
 .text-overflow {
@@ -55,7 +55,7 @@ tags: [html, css]
 
 ## 文本块如何整体隐藏
 
-回到之前的问题，标签的容器宽度有限，对于超出宽度的标签，我们整体隐藏掉（只展示一半的标签看起来也很奇怪）。我将博客标签整理成了一个简单案例，这里有点类似于单行文本的超出隐藏，我们需要在父容器添加 `overflow: hidden`, 同时因为标签需要有内边距和背景色所以修改定位为 `display: inline-block`。 案例代码 👉🏻 <a href="/inline-block-overflow/tags.html" target="__blank">标签超出隐藏案例</a>
+回到之前的问题，标签的容器宽度有限，对于超出宽度的标签，我们整体隐藏掉（只展示一半的标签看起来也很奇怪）。我将博客标签整理成了一个简单案例，这里有点类似于单行文本的超出隐藏，我们需要在父容器添加 `overflow: hidden`, 同时因为标签需要有内边距和背景色所以修改定位为 `display: inline-block`。 案例代码 👉🏻 <a href="/inline-block-overflow/tags.html" target="_blank">标签超出隐藏案例</a>
 
 ```html
 <style>
@@ -88,7 +88,7 @@ tags: [html, css]
 
 这里我们需要在父容器设置 `text-overflow: ellipsis;`，超的标签就会隐藏掉，并且显示 `...`
 
-完整示例代码 👉🏻 <a href="/inline-block-overflow/tags-resolve.html" target="__blank">标签超出整体隐藏案例</a>
+完整示例代码 👉🏻 <a href="/inline-block-overflow/tags-resolve.html" target="_blank">标签超出整体隐藏案例</a>
 
 ---
 
@@ -96,7 +96,7 @@ tags: [html, css]
 
 ![](img/2022-02-11-inline-block-overflow/ios-bug.jpg)
 
-完美解决方案示例代码 👉🏻 <a href="/inline-block-overflow/tags-perfect.html" target="__blank">标签超出整体隐藏案例</a>
+完美解决方案示例代码 👉🏻 <a href="/inline-block-overflow/tags-perfect.html" target="_blank">标签超出整体隐藏案例</a>
 
 ```css
 .container {

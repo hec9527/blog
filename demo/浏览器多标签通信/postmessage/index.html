@@ -10,7 +10,7 @@
     <h1>发送方</h1>
     <script>
       const otherUrl = 'http://localhost:53784/other.html';
-      const otherWindow = window.open(otherUrl, '__blank');
+      const otherWindow = window.open(otherUrl, '_blank');
 
       window.addEventListener('message', (e) => {
         console.log('获取响应消息：', e);

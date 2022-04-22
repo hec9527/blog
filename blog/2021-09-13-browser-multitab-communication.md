@@ -22,7 +22,7 @@ tags: [html, javascript, 面试]
 <dialog open>
   <h3>Home</h3>
   <p id="greeting"></p>
-  <a id="login" href="./profile.html" target="__blank">login</a>
+  <a id="login" href="./profile.html" target="_blank">login</a>
 </dialog>
 
 <script>
@@ -78,7 +78,7 @@ tags: [html, javascript, 面试]
 <p>
   Hello，
   <span id="name"></span>
-  <a href="./profile.html" target="__blank" id="login">>login</a>
+  <a href="./profile.html" target="_blank" id="login">>login</a>
 </p>
 
 <script>
@@ -153,7 +153,7 @@ otherWindow.postMessage(message, targetOrigin, [transfer]);
 ```html title="index.html"
 <script>
   const otherUrl = 'http://localhost:53784/other.html';
-  const otherWindow = window.open(otherUrl, '__blank');
+  const otherWindow = window.open(otherUrl, '_blank');
 
   window.addEventListener('message', (e) => {
     console.log('获取响应消息：', e);

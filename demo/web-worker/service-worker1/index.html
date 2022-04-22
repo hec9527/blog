@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Worker初体验</title>
+  </head>
+  <body>
+    <h2>Service Worker初体验</h2>
+    <p>注册Service Worker，打开控制台查看打印数据，保存页面到本地查看源代码</p>
+
+    <script>
+      if ('serviceWorker' in window.navigator) {
+        navigator.serviceWorker.register('./sw.js').then(
+          (registration) => {
+            console.log('service worker 注册成功', registration);
+          },
+          (error) => {
+            console.log('service worker 注册失败', error);
+          },
+        );
+      }
+    </script>
+  </body>
+</html>

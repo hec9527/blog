@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        width: 100%;
+      }
+    </style>
+    <title>共享worker——脚本1</title>
+  </head>
+  <body>
+    <h2>共享Worker案例 --- 脚本1</h2>
+    <p>1.html和2.html都引用了同一个worker.js，向worker.js发送消息接收消息</p>
+    <p>打开控制台查看通信数据</p>
+
+    <a href="2.html" target="_blank">打开脚本2，查看共享脚本通信</a>
+
+    <script>
+      const worker = new SharedWorker('./worker.js');
+
+      worker.port.start();
+      worker.port.addEventListener('message', (e) => {
+        console.log('脚本1：', e.data);
+        if (e.data.type === 'close') {
+          worker.port.close();
+        }
+      });
+
+      worker.port.postMessage({ origin: 'script1', type: 'showDate' });
+    </script>
+  </body>
+</html>
