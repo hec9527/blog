@@ -20,6 +20,8 @@
   --ifm-color-grey-500: #8d949e;
   --ifm-color-grey-800: #525860;
 
+  --ifm-banner-intro-text: #637792;
+
   /* 首页博客列表卡片容器阴影 */
   --ifm-color-blog-list-card: 1px 1px 8px #ced1d6, -1px -1px 8px #fff;
   --ifm-color-blog-list-card-hover: 15px 15px 60px #ced1d6, -15px -15px 60px #fff;
@@ -35,6 +37,8 @@
   --ifm-color-blog-list-card-hover: 0 0 10px rgba(173, 175, 179, 0.4), 0 10px 40px rgba(173, 175, 179, 0.4);
 
   --ifm-color-grey-800: #f5f6f7;
+
+  --ifm-banner-intro-text: #bbccdd;
 
   --ifm-color-blog-list-card-border-color: transparent;
 }
