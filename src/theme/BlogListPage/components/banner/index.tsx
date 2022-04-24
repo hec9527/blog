@@ -32,7 +32,7 @@ const HomeBanner: React.FC = () => {
         </div>
       </div>
 
-      {/* <div className={style.wave_divider}>
+      <div className={style.wave_divider}>
         <svg
           className={style.wave_svg}
           data-name='Layer 1'
@@ -45,7 +45,7 @@ const HomeBanner: React.FC = () => {
             fill='#ffffff'
           />
         </svg>
-      </div> */}
+      </div>
     </div>
   );
 };

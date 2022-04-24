@@ -70,6 +70,11 @@ html {
   overflow: hidden auto;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /** 覆盖分页按钮样式---开始 */
 .pagination-nav__link {
   background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary-light));

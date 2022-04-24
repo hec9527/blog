@@ -1,0 +1,18 @@
+.banner_container {
+  position: relative;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+}
+
+.banner_intro {
+  flex: 8 auto;
+}
+
+.banner_poster {
+  flex: 11 auto;
+}
+
+.banner_poster > svg {
+  max-height: 80vh;
+}

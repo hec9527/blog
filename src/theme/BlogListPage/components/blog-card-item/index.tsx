@@ -4,12 +4,10 @@ import style from './index.module.css';
 
 interface BlogItemsProps {
   title: string;
-  authors: { imageURL: string; name: string; title: string; url: string }[];
-  tags: { label: string; permalink: string }[];
-  readingTime: number;
+  authors?: { imageURL?: string; name?: string; title?: string; url?: string }[];
+  tags: readonly { label: string; permalink: string }[];
+  readingTime?: number;
   permalink: string;
-  nextItem: { permalink: string; title: string }[];
-  prevItem: { permalink: string; title: string }[];
   date: string;
 }
 
@@ -51,7 +49,7 @@ const BlogItems: React.FC<BlogItemsProps> = (props) => {
         </header>
 
         <div className={style.blog_items_tags}>
-          <a href='/tags'>
+          <a href='/tags' className={style.blog_items_tags_icon}>
             <Tag />
           </a>
           {props.tags.map((tag) => (

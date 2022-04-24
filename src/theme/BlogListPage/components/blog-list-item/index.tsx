@@ -3,7 +3,7 @@ import style from './index.module.css';
 
 interface BlogItemsProps {
   title: string;
-  tags: { label: string; permalink: string }[];
+  tags: readonly { label: string; permalink: string }[];
   permalink: string;
   date: string;
 }

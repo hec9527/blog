@@ -25,6 +25,8 @@ import RecentPost from './components/recent-post';
 import BlogCardItem from './components/blog-card-item';
 import BlogListItem from './components/blog-list-item';
 
+import Banner1 from '../../components/banner';
+
 function BlogListPage(props: Props): JSX.Element {
   const { metadata, items, sidebar } = props;
   const {
@@ -40,7 +42,8 @@ function BlogListPage(props: Props): JSX.Element {
 
   return (
     <Layout title={title} description={blogDescription} wrapperClassName={ThemeClassNames.wrapper.blogPages}>
-      {isFirstPage && <Banner />}
+      {/* {isFirstPage && <Banner />} */}
+      {isFirstPage && <Banner1 />}
 
       <main className={style.home_main_container}>
         <div className={style.home_blogPost_container}>
