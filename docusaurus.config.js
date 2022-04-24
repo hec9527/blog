@@ -10,7 +10,7 @@ module.exports = {
   favicon: 'img/avatar-circle.png',
   organizationName: 'hec9527',
   projectName: 'blog',
-  staticDirectories: ['demo', 'static'],
+  staticDirectories: ['demo', 'share', 'static'],
   themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     image: 'img/avatar-circle.png',

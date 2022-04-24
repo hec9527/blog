@@ -8,13 +8,18 @@
   </head>
   <body>
     <h2>Service Worker初体验</h2>
-    <p>注册Service Worker，打开控制台查看打印数据，保存页面到本地查看源代码</p>
+    <p>
+      当你成功打开这个页面的时候，意味着service worker已经成功注册了，关闭网络连接，刷新页面查看Service
+      worker实现离线页面
+    </p>
+
+    <img src="/img/share/蒙娜丽莎的假笑.jpg" style="width: 200px" />
 
     <script>
       if ('serviceWorker' in window.navigator) {
         navigator.serviceWorker.register('./sw.js').then(
-          (registration) => {
-            console.log('service worker 注册成功', registration);
+          (res) => {
+            console.log('service worker 注册成功', res);
           },
           (error) => {
             console.log('service worker 注册失败', error);
