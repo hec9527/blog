@@ -3,7 +3,7 @@ import style from './index.module.css';
 import Poster from '@site/static/svg/poster.svg';
 import { animated, useTrail } from 'react-spring';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faWeixin, faZhihu, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faWeixin, faZhihu, faStackOverflow, faQq } from '@fortawesome/free-brands-svg-icons';
 
 const Banner: React.FC = () => {
   const animatedTexts = useTrail(5, {
@@ -37,6 +37,9 @@ const Banner: React.FC = () => {
           </a>
           <a href='https://stackoverflow.com/users/11867107/%e5%8d%a1%e8%a5%bf%e8%8e%ab%e5%a4%9a' target='_blank'>
             <FontAwesomeIcon icon={faStackOverflow} size='lg' />
+          </a>
+          <a href='' target='_blank'>
+            <FontAwesomeIcon icon={faQq} size='lg' />
           </a>
           <a href='https://weixin.qq.com/' target='_blank'>
             <FontAwesomeIcon icon={faWeixin} size='lg' />

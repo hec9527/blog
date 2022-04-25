@@ -79,6 +79,22 @@ img {
   height: auto;
 }
 
+#gitalk-container a {
+  color: var(--ifm-color-primary);
+}
+
+#gitalk-container .gt-btn {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+#gitalk-container .gt-btn-preview {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+}
+#gitalk-container .gt-container .gt-popup .gt-action.is--active:before {
+  background: var(--ifm-color-primary);
+}
+
 /** 覆盖分页按钮样式---开始 */
 .pagination-nav__link {
   background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary-light));
