@@ -82,7 +82,9 @@ img {
 #gitalk-container a {
   color: var(--ifm-color-primary);
 }
-
+#gitalk-container a.is--active {
+  color: #333;
+}
 #gitalk-container .gt-btn {
   background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);

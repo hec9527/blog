@@ -7,3 +7,9 @@
   position: sticky;
   top: 100px;
 }
+
+@media screen and (max-width: 996px) {
+  .custom_sidebar_container {
+    display: none;
+  }
+}

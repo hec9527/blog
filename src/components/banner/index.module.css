@@ -63,3 +63,40 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(4em);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner_container {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .banner_greeting {
+    font-size: 1.7em;
+  }
+
+  .banner_intro {
+    padding: 2em;
+  }
+
+  .banner_poster {
+    animation: 0.5s forwards ease-in-out fadeInUp;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+
+  .banner_poster > svg {
+    max-width: 70%;
+  }
+}
