@@ -1,10 +1,6 @@
 # Dependencies
 **/node_modules
 
-# lock file
-package-lock.json
-yarn.lock
-
 # Production
 **/build
 **/dist
