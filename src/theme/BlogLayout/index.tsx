@@ -34,11 +34,7 @@ function BlogLayout(props: Props): JSX.Element {
           </main>
 
           <div className={clsx('col col--3', style.custom_sidebar_container)}>
-            {hasSidebar && (
-              <aside>
-                <BlogSidebar sidebar={sidebar!} />
-              </aside>
-            )}
+            {hasSidebar && <BlogSidebar sidebar={sidebar!} />}
             {toc && (
               <div className={style.custom_sidebar_TOC}>
                 <h3>目录</h3>
