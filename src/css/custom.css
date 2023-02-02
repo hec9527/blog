@@ -1,0 +1,124 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+:root {
+  --ifm-color-primary: #1ba784;
+  --ifm-color-primary-dark: #0e8067;
+  --ifm-color-primary-darker: #05594a;
+  --ifm-color-primary-darkest: #01332b;
+  --ifm-color-primary-light: #39b390;
+  --ifm-color-primary-lighter: #5cbfa0;
+  --ifm-color-primary-lightest: #83ccb2;
+  --ifm-code-font-size: 95%;
+
+  --ifm-color-grey-500: #8d949e;
+  --ifm-color-grey-800: #525860;
+
+  --ifm-banner-intro-text: #637792;
+
+  /* 首页博客列表卡片容器阴影 */
+  --ifm-color-blog-list-card: 1px 1px 4px #ced1d699, -1px -1px 8px #fff;
+  --ifm-color-blog-list-card-hover: 15px 15px 60px #ced1d6, -15px -15px 60px #fff;
+  /* 首页博客列表卡片容器边框 */
+  --ifm-color-blog-list-card-border-color: #e3e3e36e;
+}
+
+:root[data-theme='dark'] {
+  /* 首页博客列表卡片容器阴影 */
+  /* --ifm-color-blog-list-card: 1px 1px 8px rgba(173, 175, 179, 0.4), -1px -1px 8px rgba(200, 200, 200, 0.4); */
+  --ifm-color-blog-list-card: 0 0 10px rgba(173, 175, 179, 0.4);
+  /* --ifm-color-blog-list-card-hover: 15px 15px 60px rgba(173, 175, 179, 0.4), -5px -5px 40px rgb(150, 150, 150); */
+  --ifm-color-blog-list-card-hover: 0 0 10px rgba(173, 175, 179, 0.4), 0 10px 40px rgba(173, 175, 179, 0.4);
+
+  --ifm-color-grey-800: #f5f6f7;
+
+  --ifm-banner-intro-text: #bbccdd;
+
+  --ifm-color-blog-list-card-border-color: transparent;
+}
+
+/* :root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #46cbae;
+  --ifm-color-primary-lighter: #66d4bd;
+  --ifm-color-primary-lightest: #92e0d0;
+  --ifm-code-font-size: 95%;
+} */
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.navbar .navbar__brand > img {
+  border-radius: 50%;
+}
+
+.navbar .navbar__title {
+  color: var(--ifm-color-primary);
+}
+
+html {
+  width: 100vw;
+  overflow: hidden auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#gitalk-container a {
+  color: var(--ifm-color-primary);
+}
+#gitalk-container a.is--active {
+  color: #333;
+}
+#gitalk-container .gt-btn {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+#gitalk-container .gt-btn-preview {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+}
+#gitalk-container .gt-container .gt-popup .gt-action.is--active:before {
+  background: var(--ifm-color-primary);
+}
+
+/** 覆盖分页按钮样式---开始 */
+.pagination-nav__link {
+  background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary-light));
+}
+
+.pagination-nav__link .pagination-nav__label {
+  color: #f5f5f5 !important;
+}
+
+.pagination-nav__link .pagination-nav__label::before,
+.pagination-nav__link .pagination-nav__label::after {
+  display: none;
+}
+
+.pagination-nav__sublabel {
+  color: #f5f5f5;
+}
+
+/** 覆盖分页按钮样式---结束 */
+
+/** 覆盖导航栏头像样式--开始 */
+.navbar__logo img {
+  border-radius: 50%;
+}
+/** 覆盖导航栏头像样式--结束 */

@@ -1,0 +1,19 @@
+{
+  "name": "fed-proxy",
+  "version": "1.0.0",
+  "description": "跨域资源前端代理",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "start": "webpack serve --mode development"
+  },
+  "author": "hec9527",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  }
+}

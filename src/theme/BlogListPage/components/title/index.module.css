@@ -1,0 +1,8 @@
+.home_news_blog_title {
+  margin: 3em 0 0;
+  text-align: center;
+}
+
+.home_news_blog_title > svg {
+  fill: red;
+}

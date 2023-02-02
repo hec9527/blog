@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Worker初体验</title>
+  </head>
+  <body>
+    <h2>Service Worker初体验</h2>
+    <p>
+      当你成功打开这个页面的时候，意味着service worker已经成功注册了，关闭网络连接，刷新页面查看Service
+      worker实现离线页面
+    </p>
+
+    <img src="/img/share/蒙娜丽莎的假笑.jpg" style="width: 200px" />
+
+    <script>
+      if ('serviceWorker' in window.navigator) {
+        navigator.serviceWorker.register('./sw.js').then(
+          (res) => {
+            console.log('service worker 注册成功', res);
+          },
+          (error) => {
+            console.log('service worker 注册失败', error);
+          },
+        );
+      }
+    </script>
+  </body>
+</html>

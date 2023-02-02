@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PostMessage跨标签通信测试</title>
+  </head>
+  <body>
+    <h1>发送方</h1>
+    <script>
+      const otherUrl = 'http://localhost:53784/other.html';
+      const otherWindow = window.open(otherUrl, '_blank');
+
+      window.addEventListener('message', (e) => {
+        console.log('获取响应消息：', e);
+        if (e.data.type === 'INIT') {
+          return setInterval(() => {
+            otherWindow.postMessage({ type: 'showGreeting', msg: 'hello world from index.html' }, '*');
+          }, 3000);
+        }
+        document.body.innerHTML += `<p>响应：${JSON.stringify(e.data)}</p>`;
+      });
+    </script>
+  </body>
+</html>

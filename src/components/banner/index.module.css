@@ -1,0 +1,102 @@
+.banner_container {
+  position: relative;
+  height: calc(100vh - 60px);
+  display: grid;
+  grid-template-columns: 8fr 11fr;
+}
+
+.banner_container > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner_intro {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1em 1em 8em 4em;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.banner_intro_text {
+  color: var(--ifm-banner-intro-text);
+}
+
+.banner_poster {
+  flex: 11 0 auto;
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedRight;
+  opacity: 0;
+  animation-delay: 0.3s;
+}
+
+.banner_poster > svg {
+  max-height: 80vh;
+}
+
+.banner_greeting {
+  font-size: calc(1.8em + 1.2vw);
+}
+
+.banner_name {
+  color: var(--ifm-color-primary);
+}
+
+.banner_contact > * {
+  margin: 0 1em 0 0;
+}
+
+@keyframes lightSpeedRight {
+  from {
+    transform: translate3d(50%, 0, 0) skewX(-20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: skewX(10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: skewX(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(4em);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner_container {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .banner_greeting {
+    font-size: 1.7em;
+  }
+
+  .banner_intro {
+    padding: 2em;
+  }
+
+  .banner_poster {
+    animation: 0.5s forwards ease-in-out fadeInUp;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+
+  .banner_poster > svg {
+    max-width: 70%;
+  }
+}

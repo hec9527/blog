@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .box {
+        border: 1px solid #888;
+        padding: 4px;
+      }
+
+      .text-overflow {
+        display: -webkit-box;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+    <title>多行文本限制</title>
+  </head>
+  <body>
+    <div class="text-overflow box">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga aliquam aspernatur excepturi quis? Nulla non, neque
+      iste fugit, omnis sequi distinctio tenetur quod ea temporibus necessitatibus nam magni minima voluptatibus!
+    </div>
+  </body>
+</html>

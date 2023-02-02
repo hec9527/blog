@@ -1,0 +1,19 @@
+.custom_sidebar_container {
+  position: relative;
+}
+
+.custom_sidebar_container aside {
+  max-width: unset;
+}
+
+.custom_sidebar_TOC {
+  margin-top: 2em;
+  position: sticky;
+  top: 100px;
+}
+
+@media screen and (max-width: 996px) {
+  .custom_sidebar_container {
+    display: none;
+  }
+}

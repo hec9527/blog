@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- color-scheme 只会根据系统主题配色修改H5组件主题，如果我们使用css变量+body类名的方式修改主题色，需要手动修改meta标签 -->
+    <meta name="color-scheme" content="light dark no-preference" />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #theme-system:checked ~ .theme-switch {
+        display: none;
+      }
+
+      body,
+      body.theme-light {
+        --text-color: #000;
+        --background-color: #f5f5f5;
+      }
+
+      body.theme-dark {
+        --text-color: #ddd;
+        --background-color: #35363a;
+      }
+
+      body {
+        color: var(--text-color);
+        background: var(--background-color);
+      }
+    </style>
+    <title>媒体查询适配暗色主题</title>
+  </head>
+  <body>
+    <input type="checkbox" name="" id="theme-system" />
+    <label for="theme-system">跟随系统</label>
+    <div class="theme-switch">
+      <input type="radio" id="theme-light" name="theme-switch" data-theme="light" checked />
+      <label for="theme-light">亮色模式</label>
+      <input type="radio" id="theme-dark" name="theme-switch" data-theme="dark" />
+      <label for="theme-dark">黑暗模式</label>
+    </div>
+
+    <br />
+    <p>勾选“跟随系统”，应用主题随系统主题自动更改，不勾选“跟随系统”，可以自定义配色</p>
+    <input type="date" name="" id="" />
+
+    <script>
+      let systemMode = false;
+      let customMode = 'light';
+      const mate = document.querySelector('meta[name="color-scheme"]');
+      const match = window.matchMedia('(prefers-color-scheme: dark)');
+
+      match.addListener(handleSystemThemeMode);
+
+      function handleSystemThemeMode() {
+        if (!systemMode) return;
+        toggleTheme(match.matches ? 'dark' : 'light');
+      }
+
+      function toggleTheme(theme) {
+        const opposite = theme === 'dark' ? 'light' : 'dark';
+        mate.content = theme;
+        document.body.classList.add(`theme-${theme}`);
+        document.body.classList.remove(`theme-${opposite}`);
+      }
+
+      document.getElementById('theme-system').addEventListener('change', (e) => {
+        console.log('system mode:', e.target.checked);
+        systemMode = e.target.checked;
+        systemMode ? handleSystemThemeMode() : toggleTheme(customMode);
+      });
+
+      document.getElementsByClassName('theme-switch')[0].addEventListener('click', (e) => {
+        if (e.target.dataset.theme) {
+          customMode = e.target.dataset.theme;
+          console.log('custom mode:', customMode);
+          toggleTheme(customMode);
+        }
+      });
+    </script>
+  </body>
+</html>

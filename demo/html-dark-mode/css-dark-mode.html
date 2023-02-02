@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 去掉下面的注释，适配H5原生组件黑暗模式， 否则组件默认为白色 -->
+    <!-- <meta name="color-scheme" content="light dark" /> -->
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .button {
+        padding: 4px 7px;
+        border-radius: 4px;
+        color: #fff;
+        background: #3f7dff;
+        border: none;
+        cursor: pointer;
+      }
+
+      @media screen and (prefers-color-scheme: light), screen and(prefers-color-scheme: no-preference) {
+        body {
+          background: #fff;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #35363a;
+          color: #bbb;
+        }
+        .button {
+          color: #e5e5e5;
+          background: #2a5ecf;
+        }
+      }
+    </style>
+    <title>媒体查询适配暗色主题</title>
+  </head>
+  <body>
+    <button class="button">按 钮</button>
+    <select name="" id="">
+      <option value="">选项1</option>
+      <option value="">选项2</option>
+      <option value="">选项3</option>
+      <option value="">选项4</option>
+      <option value="">选项5</option>
+    </select>
+    <input type="date" name="" id="" />
+    <input type="text" name="" id="" placeholder="Please input some words" />
+
+    <br />
+    <h2>使用css媒体查询适配暗色主题</h2>
+    <p>优点：</p>
+    <li>自适应，修改系统主题后自动更新页面主题</li>
+    <p>缺点：</p>
+    <li>兼容性一般</li>
+    <li>用户无法手动修改主题色</li>
+
+    <br /><br /><br />
+    <iframe src="https://caniuse.com/?search=prefers-color-scheme" frameborder="0" width="900" height="500"></iframe>
+  </body>
+</html>

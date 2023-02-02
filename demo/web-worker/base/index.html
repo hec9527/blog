@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web worker基础练习</title>
+  </head>
+  <body>
+    <h3>web worker基础练习</h3>
+    <p>打开控制台查看通信效果</p>
+
+    <script>
+      const worker = new Worker('./worker.js');
+
+      worker.postMessage({ type: 'showTime' });
+      worker.postMessage({ type: 'randomNum' });
+
+      worker.onmessage = function (e) {
+        console.log('主线程消息:', e.data);
+      };
+
+      worker.addEventListener('message', (e) => {
+        console.log('主线程addEventListener', e.data);
+      });
+    </script>
+  </body>
+</html>
