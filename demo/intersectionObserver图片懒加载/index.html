@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>intersectionObserver实现图片懒加载</title>
+</head>
+
+<body>
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/1.webp" height="700px" />
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/2.webp" height="700px" />
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/3.webp" height="700px" />
+
+
+
+  <script>
+    const imgs = new Set(document.querySelectorAll('img[data-src]'));
+    const observer = new IntersectionObserver(observerCallback)
+
+    imgs.forEach(img => observer.observe(img))
+
+    function observerCallback(entries) {
+      console.log(entries);
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.src = el.dataset.src;
+          el.onload = () => {
+            imgs.delete(el);
+            if (imgs.size == 0) {
+              observer.disconnect()
+            }
+          }
+        }
+      })
+    }
+  </script>
+
+</body>
+
+</html>

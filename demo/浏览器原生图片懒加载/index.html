@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    img {
+      width: 100%;
+    }
+
+    .box {
+      width: 100%;
+      height: 100vh;
+      color: #fffa;
+      font-size: 4em;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    div.box:nth-of-type(1) {
+      background-color: hsl(0, 80%, 50%);
+    }
+
+    div.box:nth-of-type(2) {
+      background-color: hsl(100, 80%, 50%);
+    }
+
+    div.box:nth-of-type(3) {
+      background-color: hsl(300, 80%, 50%);
+    }
+  </style>
+  <title>浏览器原生懒加载</title>
+</head>
+
+<body>
+  <div class="box">placeholder</div>
+  <img src="../imgs/landscape/1.webp" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/2.webp" loading="lazy" height="777px" />
+  <div class="box">placeholder</div>
+  <img src="../imgs/landscape/3.webp" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/1.webp?q=1" loading="lazy" height="777px" />
+  <div class="box">placeholder</div>
+  <img src="../imgs/landscape/2.webp?q=2" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/3.webp?q=3" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/1.webp?q=4" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/2.webp?q=5" loading="lazy" height="777px" />
+  <img src="../imgs/landscape/3.webp?q=6" loading="lazy" height="777px" />
+
+</body>
+
+</html>

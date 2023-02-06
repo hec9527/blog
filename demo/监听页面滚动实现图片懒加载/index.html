@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>监听页面滚动实现图片懒加载</title>
+  <style>
+    .poem {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/1.webp" height="700px" />
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/2.webp" height="700px" />
+  <div class="poem">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, minus. Rerum eum eveniet magnam amet quisquam
+    exercitationem error similique alias itaque harum. Similique beatae totam tempora rem maiores ipsum voluptatem.
+    Nostrum perspiciatis omnis iste amet quaerat aliquam optio harum hic ipsa sapiente earum eum odit sint neque fugiat
+    sit ullam, facilis iusto laudantium accusamus illum debitis libero dolorem? Et, obcaecati.
+    Quas laudantium pariatur nisi quam quasi sit facere quaerat sunt delectus! Culpa, illum! Aliquam vel quaerat
+    dignissimos fuga nam. Sequi quod dolorem veniam nostrum doloribus, nulla similique dignissimos cumque aliquid.
+  </div>
+  <img data-src="../imgs/landscape/3.webp" height="700px" />
+
+
+
+  <script>
+    const imgs = new Set(document.querySelectorAll('img[data-src]'));
+    const buffer = +120;
+
+    function handleScroll() {
+      console.log('handle scorll');
+
+      imgs.forEach(img => {
+        console.log(img.getBoundingClientRect());
+        if (img.getBoundingClientRect().top <= window.innerHeight + buffer) {
+          img.src = img.dataset.src;
+          img.onload = () => {
+            console.log(img);
+            imgs.delete(img);
+            if (imgs.size === 0) {
+              console.log('remove event');
+              window.removeEventListener("scroll", handleScroll);
+            }
+          }
+        }
+      })
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("DOMContentLoaded", handleScroll, { once: true })
+  </script>
+
+</body>
+
+</html>
