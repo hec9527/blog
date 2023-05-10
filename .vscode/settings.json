@@ -1,4 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["caniuse", "easingthemes", "freepik", "pnpm"]
+  "cSpell.words": ["caniuse", "easingthemes", "freepik", "pnpm", "srcset", "webp"]
 }
