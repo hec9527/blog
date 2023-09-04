@@ -80,6 +80,7 @@
     grid-auto-flow: column;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    height: unset;
   }
 
   .banner_greeting {

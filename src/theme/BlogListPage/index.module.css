@@ -73,6 +73,11 @@
   .home_blogList_list {
     grid-template-columns: 1fr;
   }
+
+  .home_blogList_card > .home_blogItem:hover {
+    transform: unset;
+    box-shadow: unset;
+  }
 }
 
 @media screen and (max-width: 600px) {

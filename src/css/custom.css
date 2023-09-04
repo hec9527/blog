@@ -122,3 +122,10 @@ img {
   border-radius: 50%;
 }
 /** 覆盖导航栏头像样式--结束 */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --ifm-color-blog-list-card: 0 0 transparent;
+    --ifm-color-blog-list-card-hover: 0 0 transparent;
+  }
+}
