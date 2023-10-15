@@ -1,0 +1,246 @@
+---
+title: 前端工程化配置（四）—— husky
+author: hec9527
+author_title: 前端切图工程师
+author_url: https://github.com/hec9527
+author_image_url: /img/avatar-circle.png
+description: husky
+keywords: [javascript, 工程化, 工具]
+tags: [javascript, 工程化, 工具]
+# draft: true
+# image:
+---
+
+husky 是一个用于在 Git 钩子（Git hooks）中运行脚本的工具，它允许你在代码提交、代码推送等 Git 事件发生时执行一些预定义的脚本任务。这可以帮助你在提交代码之前或之后执行一些自定义的操作，以确保代码的一致性、质量和规范性
+
+![](img/2023-10-15-前端工程化_husky/husky.jpg)
+
+<!-- truncate -->
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Husky 的主要用于
+
+- **代码规范检查：** 在提交代码之前，使用 husky 运行代码规范检查工具，如 eslint、stylelint 等，确保代码的一致性、质量和规范性
+- **运行单元测试：** 在提交代码之前，使用 husky 运行单元测试，确保没有破坏现有的功能
+- **自动化构建：**在提交或推送之前运行构建脚本，去报新代码能正确的构建和打包
+- **检查提交信息：**在提交代码前，检查提交信息是否符合预定的规范，比如 [Conventional Commits 规范](https://www.conventionalcommits.org/en/v1.0.0/)
+- **阻止不合规的提交：** 如果在钩子中发现问题，husky 允许你阻止提交或推送，以确保只有合规的代码进入代码库
+
+## 安装
+
+在 git 仓库中，使用 `husky-init` 自动安装
+
+<Tabs>
+<TabItem value="npm" label="npm" default>
+
+```bash
+npx husky-init && npm install
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn add husky --dev
+```
+
+</TabItem>
+<TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm dlx husky-init && pnpm install
+```
+
+</TabItem>
+
+</Tabs>
+
+`husky-init`默认会做以下操作
+
+1. 在 `package.json` 中添加 `prepare` 命令
+2. 创建一个 `pre-commit` 的 hook
+3. 配置 git hooks 的路径
+
+初始化完成后项目的根目录下会新建一个 `.husky` 文件夹，里面有一个文件 `pre-commit`，用于提交（git commit）前执行的脚本。当然你也可以手动创建钩子文件，比如 `pre-push`，下面这个脚本会在 git push 之前执行 lint 脚本
+
+```bash
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
+```
+
+## 配置代码检测
+
+lint-staged 是一个用于在提交代码前运行预定的脚本（例如代码格式化、静态代码分析等）的工具。我们将它与 husky 结合使用，在提交代码前运行 eslint、stylelint、prettier 等代码检测工具
+
+<Tabs>
+<TabItem value="npm" label="npm" default>
+
+```bash
+npm install -D lint-staged
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn add -D lint-staged
+```
+
+</TabItem>
+<TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm install -D lint-staged
+```
+
+</TabItem>
+
+</Tabs>
+
+lint-staged 使用 [lilconfig](https://github.com/antonk52/lilconfig) 作为加载配置文件的工具，它支持一下配置文件
+
+```text
+package.json
+.lint-stagedrc
+.lint-stagedrc.js
+.lint-stagedrc.cjs
+.lint-stagedrc.mjs
+.lint-stagedrc.json
+.lint-stagedrc.yaml
+.lint-stagedrc.yml
+`lint-staged` in `package.json`
+```
+
+lint-staged 的配置文件需要导出一个对象，对对象的 key 是一个 glob 匹配模式，value 是一个需要执行的命令，命令可以跟参数。
+
+```json title=".lint-stagedrc"
+{
+  "*.js,*.jsx": "eslint",
+  "*.less": "stylelint",
+  "*": "prettier -w"
+}
+```
+
+我们修改之前创建的 `pre-commit` 脚本，并在其中添加以下内容，此时执行 git commit 之前会先执行 lint 操作，lint 检查通过后才会提交代码。🚫💩
+
+```bash title=".husky/pre-commit"
+#!/usr/bin/env sh
+
+npx --no -- lint-staged
+```
+
+## 配置提交规范
+
+在以下开源项目中，通常会配置代码提交规范，防止提交信息随便写，敷衍了事，比如 `"update"`，`"fix issue"`这种看了不知道改了啥的提交信息，
+另外通过规范提交信息，也能够通过 `git log --grep` 快速过滤出相关提交，便于查找问题，为了规范提交 commit，便有了
+[commitlint](https://commitlint.js.org/#/)。它可以检测我们的 commit 信息，如果不符合规范，则会阻止提交。
+
+<Tabs>
+<TabItem value="npm" label="npm" default>
+
+```bash
+npm install -D @commitlint/{cli,config-conventional}
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn add -D @commitlint/{cli,config-conventional}
+```
+
+</TabItem>
+
+<TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm install -D @commitlint/{cli,config-conventional}
+```
+
+</TabItem>
+
+</Tabs>
+
+同样的 commitlint 也支持多种配置文件，在项目根目录下创建 `commitlint.config.js` 文件，我们便引入了 [conventional commit 规范](https://www.conventionalcommits.org/en/v1.0.0/)
+
+```js title="commitlint.config.js"
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+};
+```
+
+在 husky 中添加 `commit-msg` 钩子，然后在其中调用 commitlint 进行检测。这样，我们在提交时，输入的提交信息不符合规范时，commitlint 会阻止提交，并给出提示。
+
+```bash title=".husky/commit-msg"
+#!/usr/bin/env sh
+. "$(dirname -- "")/_/husky.sh"
+
+npx -- commitlint --edit "$0"
+```
+
+### conventional commit 规范\*\*
+
+规范规定了 commit 的格式，主要由以下部分组成，body 和 footer 都是可选的，header 信息不能省略。另外 header 中的 scope 是可选的，如果没有 scope，则可以省略。
+
+```text
+<type>(<scope>): <subject>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+
+#### type
+
+type 是必需的，用于说明 commit 的类别，只允许使用下面几个标识。
+
+- build: 影响构建系统或外部依赖（例如 scopes: gulp, broccoli, npm）的修改
+- ci: 影响 CI 配置文件和脚本的修改
+- docs: 仅仅是文档的修改
+- feat: 一个新功能
+- fix: 修复一个 bug
+- perf: 优化性能
+- refactor: 代码重构
+- style: 不影响代码含义的修改（空格、格式、缺少分号等）
+- test: 添加缺失的测试或更正现有测试
+- chore: 构建过程或辅助工具的变动
+- revert: 回滚某个 commit
+
+#### scope
+
+scope 用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，前端项目可能会是页面、数据层、组件、工具函数等。
+
+#### subject
+
+subject 是 commit 的简短描述，不超过 50 个字符，包含了本次修改的内容和原因。值得注意的是 subject 与冒号之间有一个空格。
+
+#### 例子
+
+```text
+feat(parser): add ability to parse arrays
+
+* add `parseArray` method
+* add `parseObject` method
+```
+
+#### body
+
+body 是对本次 commit 的详细描述，可以分成多行，包含了本次修改的动机和实现方法。
+
+#### footer
+
+footer 是对本次 commit 的关闭 issue 的描述，可以写多个 issue，也可以写关闭的 issue 的链接。
+
+## 总结
+
+以上就是前端工程化的基本流程，通过 husky、lint-staged、commitlint 等工具，可以实现代码检测、规范提交信息，提高代码质量，减少 bug。
+
+## 参考资料
+
+- [husky](https://github.com/typicode/husky)
+- [lint-staged](https://www.npmjs.com/package/lint-staged)
+- [commitlint](https://commitlint.js.org/#/)

@@ -29,7 +29,7 @@ const Banner: React.FC = () => {
           欢迎访问我的博客，这里有专业的技术分析，代码实现以及问题排查，希望对你的工作和学习有所启发
         </animated.p>
         <animated.div style={animatedTexts[4]} className={style.banner_contact}>
-          <a href='https://www.zhihu.com/people/dream-begger' target='_blank'>
+          <a href='https://www.zhihu.com/people/hec9527' target='_blank'>
             <FontAwesomeIcon icon={faZhihu} size='lg' />
           </a>
           <a href='https://github.com/hec9527' target='_blank'>
