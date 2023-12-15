@@ -117,7 +117,7 @@ package.json
 
 lint-staged 的配置文件需要导出一个对象，对对象的 key 是一个 glob 匹配模式，value 是一个需要执行的命令，命令可以跟参数。
 
-```json title=".lint-stagedrc"
+```json title=".lintstagedrc"
 {
   "*.js,*.jsx": "eslint",
   "*.less": "stylelint",
@@ -129,6 +129,7 @@ lint-staged 的配置文件需要导出一个对象，对对象的 key 是一个
 
 ```bash title=".husky/pre-commit"
 #!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
 npx --no -- lint-staged
 ```
@@ -167,7 +168,7 @@ pnpm install -D @commitlint/{cli,config-conventional}
 
 同样的 commitlint 也支持多种配置文件，在项目根目录下创建 `commitlint.config.js` 文件，我们便引入了 [conventional commit 规范](https://www.conventionalcommits.org/en/v1.0.0/)
 
-```js title="commitlint.config.js"
+```js title=".commitlintrc"
 module.exports = {
   extends: ['@commitlint/config-conventional'],
 };
@@ -177,9 +178,9 @@ module.exports = {
 
 ```bash title=".husky/commit-msg"
 #!/usr/bin/env sh
-. "$(dirname -- "")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
-npx -- commitlint --edit "$0"
+npx --no -- commitlint --edit ${1}
 ```
 
 ### conventional commit 规范\*\*
