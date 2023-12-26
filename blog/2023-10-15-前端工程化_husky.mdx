@@ -119,9 +119,9 @@ lint-staged 的配置文件需要导出一个对象，对对象的 key 是一个
 
 ```json title=".lintstagedrc"
 {
-  "*.js,*.jsx": "eslint",
+  "*.{js,jsx,ts,tsx}": "eslint",
   "*.less": "stylelint",
-  "*": "prettier -w"
+  "*": "prettier --write"
 }
 ```
 
@@ -131,7 +131,7 @@ lint-staged 的配置文件需要导出一个对象，对对象的 key 是一个
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- lint-staged
+npx --no-install lint-staged
 ```
 
 ## 配置提交规范
