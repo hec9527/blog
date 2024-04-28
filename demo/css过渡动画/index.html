@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS过渡动画</title>
+    <style>
+      :root {
+        user-select: none;
+
+        --aside-bg-color: #abf;
+        --aside-text-color: #569;
+
+        --header-bg-color: #c9f;
+        --header-text-color: rgb(133, 98, 168);
+
+        --article-bg-color: #a99;
+        --article-text-color: #555;
+
+        --footer-bg-color: #686;
+        --footer-text-color: #565;
+      }
+
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+        display: block;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+
+      .container {
+        position: relative;
+        height: 100%;
+        display: flex;
+        filter: contrast(2);
+      }
+
+      .container.open {
+        filter: grayscale(1);
+      }
+
+      /* .container.open::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: #0006;
+        pointer-events: none;
+      } */
+
+      aside,
+      header,
+      article,
+      footer {
+        display: grid;
+        place-items: center;
+        font-size: 2em;
+        font-weight: 700;
+      }
+
+      main {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      main > *:not(article) {
+        flex: 0 0 180px;
+      }
+
+      aside {
+        flex-basis: 15%;
+        min-width: 300px;
+        background-color: var(--aside-bg-color);
+        color: var(--aside-text-color);
+      }
+
+      header {
+        position: relative;
+        background-color: var(--header-bg-color);
+        color: var(--header-text-color);
+      }
+
+      article {
+        flex: 1;
+        position: relative;
+        background-color: var(--article-bg-color);
+        color: var(--article-text-color);
+      }
+
+      footer {
+        background-color: var(--footer-bg-color);
+        color: var(--footer-text-color);
+      }
+
+      .switch {
+        position: absolute;
+        right: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 4px;
+        border-radius: 4px;
+        display: flex;
+        border: 2px solid #696969;
+      }
+
+      .switch.open .pan {
+        transform: translateX(0%);
+      }
+
+      .switch .pan {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #3335;
+        border-radius: 2px;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: transform 125ms ease-in-out;
+      }
+
+      .switch .on,
+      .switch .off {
+        width: 50px;
+        height: 50px;
+        font-size: 36px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+      }
+
+      .menu {
+        position: absolute;
+        left: 32px;
+        top: 32px;
+      }
+
+      .menu li span {
+        position: relative;
+        cursor: pointer;
+        pointer-events: none;
+      }
+
+      .menu li.active span::after {
+        position: absolute;
+        content: '';
+        bottom: 0.2em;
+        width: 100%;
+        height: 6px;
+        border-radius: 12px;
+        left: 0;
+        background-color: #cafc;
+        cursor: pointer;
+      }
+
+      .menu li:hover {
+        color: #696969;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <span>Aside</span>
+        <div class="menu">
+          <ul>
+            <li class="active">
+              <span>slide</span>
+            </li>
+            <li>
+              <span>black hole</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <span>Header</span>
+          <div class="switch">
+            <div class="pan"></div>
+            <div class="on">开</div>
+            <div class="off">关</div>
+          </div>
+        </header>
+        <article>
+          <span style="text-align: center">
+            <span>Article</span>
+            <br />
+            <span style="font-size: 0.5em; opacity: 0.6">双击页面或者点击右上角开关切换页面</span>
+          </span>
+        </article>
+        <footer>Footer</footer>
+      </main>
+    </div>
+
+    <script>
+      const container = document.querySelector('.container');
+      const Switch = document.querySelector('.switch');
+      const menus = document.querySelector('.menu');
+      let alerted = false;
+      let animation = 'slide';
+      let lastClick = null;
+
+      function togglePageStatus() {
+        if (!document.startViewTransition) {
+          if (!alerted) {
+            alert("Your browser doesn't support this api");
+            alerted = true;
+          }
+          return;
+        }
+
+        const transition = document.startViewTransition(() => {
+          container.classList.toggle('open');
+          Switch.classList.toggle('open');
+        });
+
+        transition.ready.then(() => {
+          if (animation === 'slide') {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const buffer = width * 0.1;
+            document.documentElement.animate(
+              {
+                clipPath: [
+                  `path('M ${-width} 0 L 0,0 L ${-buffer},${height} L ${-width - buffer * 2},${height}')`,
+                  `path('M 0 0 L ${width + buffer},0 L ${width},${height} L ${-buffer},${height}')`,
+                ],
+              },
+              {
+                duration: 500,
+                easing: 'linear',
+                pseudoElement: '::view-transition-new(root)',
+              },
+            );
+          } else if (animation === 'black hole') {
+            const { clientX, clientY } = lastClick;
+            const { innerWidth, innerHeight } = window;
+
+            const x = lastClick?.clientX ?? innerWidth / 2;
+            const y = lastClick?.clientY ?? innerHeight / 2;
+
+            const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+            document.documentElement.animate(
+              {
+                clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`],
+              },
+              {
+                duration: 500,
+                easing: 'ease-in',
+                pseudoElement: '::view-transition-new(root)',
+              },
+            );
+          }
+        });
+      }
+
+      Switch.addEventListener('click', (e) => {
+        if (e.target.classList.contains('on') || e.target.classList.contains('off')) {
+          togglePageStatus();
+        }
+      });
+
+      menus.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'li') {
+          animation = e.target.innerText;
+          console.log(e.target.parentNode);
+          Array.from(e.target.parentNode.children).forEach((node) => {
+            if (node === e.target) {
+              node.classList.add('active');
+            } else {
+              node.classList.remove('active');
+            }
+          });
+        }
+      });
+
+      document.addEventListener('dblclick', (e) => {
+        lastClick = e;
+        togglePageStatus();
+      });
+    </script>
+  </body>
+</html>
